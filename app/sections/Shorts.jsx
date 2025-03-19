@@ -33,10 +33,12 @@ function Shorts() {
     return (
         <div id='achievements' className='shorts-container'>
             <div className='shorts-header bg-primary'>
-              <div className='flex md:flex-row flex-col items-center justify-between md:ml-12 gap-2'>
-               <RollingNumber />
-                <h2 className='text-center text-2xl text-white md:ml-[430px] font-bold px-4'>Wig Donations</h2>
-                <h2 className='text-center text-2xl text-white md:w-[250px] md:ml-[380px] font-bold px-4'>Hair Donation Events</h2>
+              <div className='flex md:flex-row flex-col items-center justify-center gap-6'>
+               <RollingNumber count="1M+" countname="Subscribers" />
+                <h2 className='text-center text-2xl text-white md:ml-[430px] font-bold'>Wig Donations</h2>
+                <div className='md:ml-[300px]'>
+                 <RollingNumber count="3K+" countname="Donors" />
+                </div>
             </div>
             </div>
 

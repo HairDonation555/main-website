@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react';
 import Button from '../components/Buttons';
 
 const images = [
-  '/images/hr4.png', // Replace with your actual image URLs
-  '/images/hr1.png',
-  '/images/hr2.png',
+  '/images/nh1.jpeg', // Replace with your actual image URLs
+  '/images/nh2.jpeg',
+  '/images/nh3.jpeg',
 ];
 
 const Hero = () => {

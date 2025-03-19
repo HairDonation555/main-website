@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const RollingNumber = () => {
+const RollingNumber = (props) => {
   const [count, setCount] = useState(0);
   const target = 1000000; // 1 Million
   const duration = 3000; // 3 seconds
@@ -18,7 +18,7 @@ const RollingNumber = () => {
       if (progress < 1) {
         requestAnimationFrame(updateCounter);
       } else {
-        setCount("1M+"); // Final display
+        setCount(props.count); // Final display
       }
     };
 
@@ -27,7 +27,7 @@ const RollingNumber = () => {
 
   return (
     <h2 className="text-center text-2xl text-white md:ml-28 font-bold px-4">
-      {typeof count === "number" ? count.toLocaleString() : count} Donors
+      {typeof count === "number" ? count.toLocaleString() : count} {props.countname}
     </h2>
   );
 };
