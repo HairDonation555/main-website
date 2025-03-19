@@ -26,7 +26,7 @@ const RollingNumber = (props) => {
   }, []);
 
   return (
-    <h2 className="text-center text-2xl text-white md:ml-28 font-bold px-4">
+    <h2 className="text-center text-2xl text-white md:ml-28 w-36 font-bold px-4">
       {typeof count === "number" ? count.toLocaleString() : count} {props.countname}
     </h2>
   );

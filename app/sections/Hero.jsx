@@ -4,8 +4,8 @@ import Button from '../components/Buttons';
 
 const images = [
   '/images/nh1.jpeg', // Replace with your actual image URLs
-  '/images/nh2.jpeg',
-  '/images/nh3.jpeg',
+  '/images/hr1.png',
+  '/images/hr4.png',
 ];
 
 const Hero = () => {
@@ -25,13 +25,13 @@ const Hero = () => {
 
   return (
     <div className="relative flex flex-col items-center justify-center h-screen text-white text-center">
-      <div className="absolute inset-0 flex justify-around items-center">
+      <div className="absolute inset-0 flex md:flex-row flex-col justify-around items-center">
         {visibleImages.map((image, index) => (
           <img 
             key={index} 
             src={image} 
             alt={`Image ${index}`} 
-            className="w-1/3 h-full object-cover" 
+            className="w-1/3 h-full md:object-cover " 
           />
         ))}
       </div>
