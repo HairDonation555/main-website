@@ -31,7 +31,7 @@ function Shorts() {
     };
 
     return (
-        <div className='shorts-container'>
+        <div id='achievements' className='shorts-container'>
             <div className='shorts-header bg-primary'>
               <div className='flex md:flex-row flex-col items-center justify-between md:ml-12 gap-2'>
                <RollingNumber />

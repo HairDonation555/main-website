@@ -5,6 +5,9 @@ import Shorts from "./sections/Shorts";
 import Donations from "./sections/Donations";
 import Saloons from "./sections/Saloons";
 import EventGallery from "./sections/Gallery";
+import Process from "./sections/Process";
+import Locations from "./sections/Locations";
+import Footer from "./sections/Footer";
 
 export default function Home() {
   return (
@@ -16,6 +19,9 @@ export default function Home() {
       <Donations />
       <Saloons />
       <EventGallery />
+      <Process />
+      <Locations />
+      <Footer />
     </div>
   );
 }
