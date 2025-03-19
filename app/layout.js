@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Yellowtail, Parkinsans } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -6,8 +6,15 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const yellowtail = Yellowtail({
+  variable: "--font-yellowtail", // Changed variable name for clarity
+  weight: "400", // Specify the weight here
+  subsets: ["latin"],
+});
+
+const parkinsasn = Parkinsans({
+  variable: "--font-parkinsans", // Changed variable name for clarity
+  weight: "400", // Specify the weight here
   subsets: ["latin"],
 });
 
@@ -20,7 +27,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${yellowtail.variable} ${parkinsasn.variable} transition ease-in-out antialiased`}
       >
         {children}
       </body>
