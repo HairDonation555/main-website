@@ -63,7 +63,7 @@ function Footer() {
           <div className="flex items-center gap-2 text-black">
             <FaWhatsapp className='text-primary w-8 h-8' />
             <p className="text-primary text-2xl">
-              <a href="https://wa.me/918056890200" className="hover:underline">WhatsApp me</a>
+              <a href="https://wa.me/918056890200" className="hover:underline">WhatsApp Us</a>
             </p>
           </div>
         </div>
