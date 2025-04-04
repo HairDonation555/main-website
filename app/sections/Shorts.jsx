@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import RollingNumber from '../components/RollCount';
+
+import Impact from './../components/Impact';
 
 const shortsData = [
     { id: 1, videoId: 'oYt_AkV0Mz0' },
@@ -20,7 +21,7 @@ function Shorts() {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex(prevIndex => (prevIndex + 1) % Math.ceil(shortsData.length / 3));
-        }, 5000); // Change every 5 seconds
+        }, 5000);
 
         return () => clearInterval(interval);
     }, []);
@@ -32,21 +33,18 @@ function Shorts() {
 
     return (
         <div id='achievements' className='shorts-container'>
-            <div className='shorts-header bg-primary'>
-              <div className='flex md:flex-row md:ml-4 flex-col items-center justify-center gap-10'>
-               <RollingNumber count="1M+" countname="Subscribers" />
-                <h2 className='text-center text-2xl text-white md:ml-[460px] font-bold'>Wig Donations</h2>
-                <div className='md:ml-[300px]'>
-                 <RollingNumber count="3000+" countname="Donors" />
-                </div>
-            </div>
+            <div className='flex flex-col items-center justify-center w-full'>
+               <h2 className="text-black md:text-5xl text-center text-3xl mb-6 font-bold">Our Impact</h2>
+               <p className='w-24 justify-center items-center border-2 border-primary mb-4'></p>
+               <p className='text-gray-500 text-center'>These aren't just numbers, they all represent restored smiles and confidence!</p>
+              <Impact />
             </div>
 
             <div className='marquee'>
-                <div className='marquee-content' style={{ transform: `translateX(-${currentIndex * (100 / 3)}%)` }}>
+                <div className='marquee-content gap-2 flex' style={{ transform: `translateX(-${currentIndex * (100 / 3)}%)` }}>
                     {shortsData.map(short => (
                         <iframe
-                            className='short-iframe md:w-[310px] md:h-[506px] w-[110px] h-[306px]'
+                            className='short-iframe md:w-[310px] md:h-[506px] w-[200px] h-[406px]'
                             key={short.id}
                             src={`https://www.youtube.com/embed/${short.videoId}`}
                             title={`YouTube Short ${short.id}`}

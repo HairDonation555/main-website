@@ -1,8 +1,11 @@
 import React from 'react';
 import Buttons from '../components/Buttons';
+import Volunteers from '../components/Volunteers';
 
 function Process() {
   return (
+    <div className="flex flex-col">
+      <Volunteers />
     <div className='flex flex-col md:flex-row md:gap-12 md:mb-12 gap-6 items-center w-full h-full justify-center py-14 px-6 md:px-14'>
 
       <div className='flex flex-col gap-6 px-6 md:px-12 py-12 items-center  m-4 text-center'>
@@ -16,6 +19,9 @@ function Process() {
         className='w-full md:w-[700px] h-auto md:h-[650px] object-contain' 
         alt='About Us'
       />
+      
+    </div>
+
     </div>
   );
 }

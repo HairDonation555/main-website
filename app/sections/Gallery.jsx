@@ -39,10 +39,13 @@ const EventGallery = () => {
         </div>
       </div>
 
-      <h2 className="text-4xl font-bold text-center mt-10 mb-6">Events</h2>
-      <div className="text-center">
-        <Buttons text="Host an Event" btnlink="/" />
-      </div>
+      <div className="flex flex-col gap-2 items-center">
+        <h2 className="text-black md:text-5xl text-right text-3xl mb-4 font-bold">Wig Donations</h2>
+        <p className='w-24 border-2 border-primary mb-2'></p>
+        <p className="text-gray-700 text-center leading-relaxed">
+            Celebrating our generous donors and their beutiful donations!
+        </p>
+        </div>
     </div>
   );
 };

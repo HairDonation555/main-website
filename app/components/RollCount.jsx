@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 const RollingNumber = ({ count = "1M+", countname = "" }) => {
   const [currentCount, setCurrentCount] = useState(0);
   const ref = useRef(null);
-  const duration = 2000; // Animation duration (3 seconds)
+  const duration = 1000; // Animation duration (3 seconds)
 
   // Function to convert formatted numbers like "1M+" to actual numbers
   const parseCount = (countString) => {
@@ -55,9 +55,9 @@ const RollingNumber = ({ count = "1M+", countname = "" }) => {
   return (
     <h2
       ref={ref}
-      className="text-center text-2xl text-white md:ml-28 w-36 font-bold px-4"
+      className="text-center text-2xl text-white flex flex-col w-36 text-center font-bold"
     >
-      {currentCount.toLocaleString()} {countname}
+      <span className="text-primary font-bold">{currentCount.toLocaleString()}+</span> {countname}
     </h2>
   );
 };

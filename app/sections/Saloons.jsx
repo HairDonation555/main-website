@@ -1,18 +1,18 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { FaMapMarkerAlt, FaPhone, FaClock, FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
-// Sample data for the saloons
 const saloonsData = [
-  { id: 1, name: "Saloon A", details: "Best hair treatments and styling.", imageUrl: "/images/hr5.png" },
-  { id: 2, name: "Saloon B", details: "Expert hair stylists at your service.", imageUrl: "/images/hr3.png" },
-  { id: 3, name: "Saloon C", details: "Relaxing ambience with the best services.", imageUrl: "/images/hr12.png" },
-  { id: 4, name: "Saloon D", details: "Best quality products used.", imageUrl: "/images/hr5.png" },
-  { id: 5, name: "Saloon E", details: "Stylish cuts and colors.", imageUrl: "/images/hr3.png" },
-  { id: 6, name: "Saloon F", details: "Pampering services available.", imageUrl: "/images/hr12.png" },
-  { id: 7, name: "Saloon G", details: "Expert nail care.", imageUrl: "/images/hr5.png" },
-  { id: 8, name: "Saloon H", details: "Specialized in spa services.", imageUrl: "/images/hr3.png" },
-  { id: 9, name: "Saloon I", details: "Professional makeup artists.", imageUrl: "/images/hr12.png" },
+  { id: 1, name: "Glamour Cuts", location: "123 Beauty Ave, New York, NY", phone: "(212) 555-1234", timing: "Mon-Sat: 9AM-7PM", offer: "Free cut for donors", imageUrl: "/images/hr5.png" },
+  { id: 2, name: "Shear Elegance", location: "456 Style St, Los Angeles, CA", phone: "(310) 555-5678", timing: "Mon-Fri: 8AM-6PM, Sat: 9AM-5PM", offer: "20% discount for donors", imageUrl: "/images/hr3.png" },
+  { id: 3, name: "Tress Studio", location: "789 Hair Blvd, Chicago, IL", phone: "(312) 555-9012", timing: "Tue-Sat: 10AM-8PM", offer: "Free styling with donation", imageUrl: "/images/hr12.png" },
+  { id: 4, name: "Salon D", location: "101 Main St, Miami, FL", phone: "(305) 555-7890", timing: "Mon-Fri: 10AM-6PM", offer: "Discounted hair treatments", imageUrl: "/images/hr5.png" },
+  { id: 5, name: "Salon E", location: "202 Broadway, San Francisco, CA", phone: "(415) 555-4567", timing: "Wed-Sun: 11AM-7PM", offer: "Special offers for donors", imageUrl: "/images/hr3.png" },
+  { id: 6, name: "Salon E", location: "202 Broadway, San Francisco, CA", phone: "(415) 555-4567", timing: "Wed-Sun: 11AM-7PM", offer: "Special offers for donors", imageUrl: "/images/hr3.png" },
+  { id: 7, name: "Salon E", location: "202 Broadway, San Francisco, CA", phone: "(415) 555-4567", timing: "Wed-Sun: 11AM-7PM", offer: "Special offers for donors", imageUrl: "/images/hr3.png" },
+  { id: 8, name: "Salon E", location: "202 Broadway, San Francisco, CA", phone: "(415) 555-4567", timing: "Wed-Sun: 11AM-7PM", offer: "Special offers for donors", imageUrl: "/images/hr3.png" },
+  { id: 9, name: "Salon E", location: "202 Broadway, San Francisco, CA", phone: "(415) 555-4567", timing: "Wed-Sun: 11AM-7PM", offer: "Special offers for donors", imageUrl: "/images/hr3.png" },
 ];
 
 const Saloons = () => {
@@ -20,19 +20,18 @@ const Saloons = () => {
   const [cardsPerSlide, setCardsPerSlide] = useState(3);
   const totalSlides = Math.ceil(saloonsData.length / cardsPerSlide);
 
-  // Handle responsiveness
   useEffect(() => {
     const updateCardsPerSlide = () => {
       if (window.innerWidth < 640) {
-        setCardsPerSlide(1); // 1 card for small screens
+        setCardsPerSlide(1);
       } else if (window.innerWidth < 1024) {
-        setCardsPerSlide(2); // 2 cards for tablets
+        setCardsPerSlide(2);
       } else {
-        setCardsPerSlide(3); // 3 cards for desktops
+        setCardsPerSlide(3);
       }
     };
 
-    updateCardsPerSlide(); // Initial check
+    updateCardsPerSlide();
     window.addEventListener("resize", updateCardsPerSlide);
     return () => window.removeEventListener("resize", updateCardsPerSlide);
   }, []);
@@ -40,7 +39,7 @@ const Saloons = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
-    }, 4000); // Slide changes every 4 seconds
+    }, 4000);
     return () => clearInterval(interval);
   }, [currentSlide, cardsPerSlide]);
 
@@ -59,32 +58,39 @@ const Saloons = () => {
   const currentCards = saloonsData.slice(currentSlide * cardsPerSlide, (currentSlide + 1) * cardsPerSlide);
 
   return (
-    <div className="flex flex-col items-center p-5 bg-[#006c7c] text-white w-full">
-      <h2 className="text-4xl font-bold mt-12">Our Saloons</h2>
+    <div className="flex flex-col items-center p-6 bg-primary text-white w-full">
+      <h2 className="text-4xl font-bold mt-12 mb-4">Partner Salons</h2>
+      <p className='w-24 border-2 border-white mb-4'></p>
+      <p className="text-lg text-gray-200 mt-2">Our certified salon partners provide professional hair cutting services for donors</p>
 
-      {/* Cards Container */}
       <div className="flex justify-center gap-6 mt-6 md:p-12 w-full overflow-hidden">
         {currentCards.map((saloon) => (
-          <div
-            key={saloon.id}
-            className="bg-white p-4 rounded-lg w-72 shadow-lg transform transition duration-300 hover:scale-105 sm:hover:scale-100"
-          >
-            <img src={saloon.imageUrl} alt={saloon.name} className="w-full h-[400px] rounded-t-lg rounded-br-[80px]" />
-            <div className="p-4 text-center">
-              <h3 className="text-2xl text-primary font-bold">{saloon.name}</h3>
-              <p className="text-gray-600 text-lg">{saloon.details}</p>
+          <div key={saloon.id} className="bg-white p-6 rounded-lg shadow-lg w-80">
+            <div className="flex items-center gap-3 mb-4">
+              <img src={saloon.imageUrl} alt={saloon.name} className="w-12 h-12 rounded-full" />
+              <div>
+                <h3 className="text-xl font-bold text-gray-800">{saloon.name}</h3>
+                <div className="flex items-center text-yellow-500">★★★★★</div>
+              </div>
+            </div>
+            <div className="text-gray-600">
+              <p className="flex items-center gap-2"><FaMapMarkerAlt /> {saloon.location}</p>
+              <p className="flex items-center gap-2"><FaPhone /> {saloon.phone}</p>
+              <p className="flex items-center gap-2"><FaClock /> {saloon.timing}</p>
+            </div>
+            <div className="flex justify-between mt-4">
+              <span className="bg-pink-200 text-pink-600 px-2 py-1 rounded text-sm">Certified</span>
+              <span className="text-gray-800 text-sm">{saloon.offer}</span>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Navigation Buttons */}
       <div className="flex gap-4 justify-center my-6">
-        <button onClick={handlePrev} className="bg-white text-black p-2 rounded-full hover:bg-gray-300">Prev</button>
-        <button onClick={handleNext} className="bg-white text-black p-2 rounded-full hover:bg-gray-300">Next</button>
+        <button onClick={handlePrev} className="bg-white cursor-pointer text-black p-2 rounded-full hover:bg-gray-300"><FaArrowLeft /></button>
+        <button onClick={handleNext} className="bg-white cursor-pointer text-black p-2 rounded-full hover:bg-gray-300"><FaArrowRight /></button>
       </div>
 
-      {/* Dots Indicator */}
       <div className="flex gap-2">
         {Array.from({ length: totalSlides }).map((_, index) => (
           <button

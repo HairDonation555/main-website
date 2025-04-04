@@ -8,6 +8,7 @@ import EventGallery from "./sections/Gallery";
 import Process from "./sections/Process";
 import Locations from "./sections/Locations";
 import Footer from "./sections/Footer";
+import ContactSection from "./sections/Touch";
 
 export default function Home() {
   return (
@@ -17,10 +18,11 @@ export default function Home() {
       <About />
       <Shorts />
       <Donations />
-      <Saloons />
       <EventGallery />
       <Process />
+      <Saloons />
       <Locations />
+      <ContactSection />
       <Footer />
     </div>
   );
