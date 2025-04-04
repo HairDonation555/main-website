@@ -16,9 +16,9 @@ const ContactSection = () => {
           Have questions? We're here to help with your hair donation journey.
         </p>
 
-        <div className="mt-10 grid grid-c~ols-1 md:grid-cols-2 gap-8">
+        <div className="mt-10 flex items-center justify-center gap-8">
           {/* Contact Information */}
-          <div className="bg-white ww-[400px] shadow-lg rounded-lg p-6 h-fit" >
+          {/* <div className="bg-white ww-[400px] shadow-lg rounded-lg p-6 h-fit" >
             <h3 className="text-xl font-semibold text-gray-900 mb-4">
               Contact Information
             </h3>
@@ -49,10 +49,10 @@ const ContactSection = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Contact Form */}
-          <div className="bg-white shadow-lg rounded-lg p-6">
+          <div className="bg-white shadow-lg w-[500px] rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4">
               Send Us a Message
             </h3>
