@@ -1,9 +1,7 @@
 "use client";
 
 import React from "react";
-import { IoMdMail } from "react-icons/io";
-import { FaLocationDot } from "react-icons/fa6";
-import { FaPhoneAlt } from "react-icons/fa";
+import Anims from '../components/Anims'
 
 const ContactSection = () => {
   return (
@@ -52,6 +50,7 @@ const ContactSection = () => {
           </div> */}
 
           {/* Contact Form */}
+          <Anims inAnimation="fadeIn" outAnimation="fadeOut"  delay={0.2}>
           <div className="bg-white shadow-lg w-[500px] rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4">
               Send Us a Message
@@ -101,6 +100,7 @@ const ContactSection = () => {
               </button>
             </form>
           </div>
+          </Anims>
         </div>
       </div>
     </div>

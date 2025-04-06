@@ -20,7 +20,7 @@ const Volunteers = () => {
         {/* Volunteer Roles */}
         <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Hair Sorting */}
-          <Anims inAnimation='slideInUp' outAnimation='slideOutDown'>
+          <Anims inAnimation='fadeIn' outAnimation='fadeOut'>
        
           <div className="bg-white shadow-lg rounded-lg p-6 text-left">
             <span className="text-primary text-3xl"><FaScissors /></span>
@@ -33,7 +33,7 @@ const Volunteers = () => {
             <p className="text-gray-500 mt-2">⏳ 4 hours/week commitment</p>
           </div>
           </Anims>  
-          <Anims inAnimation='slideInUp' outAnimation='slideOutDown'>
+          <Anims inAnimation='fadeIn' outAnimation='fadeOut'>
        
           {/* Outreach Ambassador */}
           <div className="bg-white shadow-lg rounded-lg p-6 text-left">
@@ -48,7 +48,7 @@ const Volunteers = () => {
           </div>
           </Anims>  
 
-          <Anims inAnimation='slideInUp' outAnimation='slideOutDown'>
+          <Anims inAnimation='fadeIn' outAnimation='fadeOut'>
        
           {/* Wig Assembly */}
           <div className="bg-white shadow-lg rounded-lg p-6 text-left">

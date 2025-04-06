@@ -38,7 +38,7 @@ const EventGallery = () => {
           ))}
         </div>
       </div>
-      <Anims inAnimation='slideInUp' outAnimation='slideOutDown'>
+      <Anims inAnimation='fadeIn' outAnimation='fadeOut'>
        
       <div className="flex flex-col gap-2 items-center">
         <h2 className="text-black md:text-5xl text-right text-3xl mb-4 font-bold">Donors Gallery</h2>

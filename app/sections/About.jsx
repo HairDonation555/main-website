@@ -26,7 +26,7 @@ function About() {
   }, []);
 
   return (
-    <div id="about" className="w-full flex md:mt-10 md:mb-10 flex-col md:flex-row items-center justify-center py-10 px-5 md:px-20">
+    <div id="about" className="w-full flex md:mt-10  md:mb-20 flex-col md:flex-row items-center justify-center py-10 mt-6 gap-6 px-5 md:px-20">
       {/* Video Section */}
       <div className="md:w-1/2 w-full flex justify-center">
       <Anims inAnimation='fadeIn' outAnimation='fadeOut'>
@@ -56,21 +56,21 @@ function About() {
         <div className="mt-4">
           <h3 className="text-xl font-semibold text-gray-900">Why Your Donation Helps</h3>
           <ul className="mt-2 space-y-2">
-          <Anims inAnimation='slideInUp' outAnimation='slideOutDown' delay={0.1}>
+          <Anims inAnimation='fadeIn' outAnimation='fadeOut' delay={0.1}>
        
             <li className="flex items-center">
               <span className="text-primary text-xl mr-2  bg-green-300 rounded-xl p-2"><IoIosHeart /></span>
               Provides wigs for cancer patients undergoing chemotherapy
             </li>
             </Anims>  
-            <Anims inAnimation='slideInUp' outAnimation='slideOutDown' delay={0.2}>
+            <Anims inAnimation='fadeIn' outAnimation='fadeOut' delay={0.2}>
        
             <li className="flex items-center">
               <span className="text-primary text-xl mr-2  bg-green-300 rounded-xl p-2"><IoMdMan /></span>
               Supports children with alopecia or other medical hair loss conditions
             </li>
             </Anims>  
-            <Anims inAnimation='slideInUp' outAnimation='slideOutDown' delay={0.3}>
+            <Anims inAnimation='fadeIn' outAnimation='fadeOut' delay={0.3}>
        
             <li className="flex items-center">
               <span className="text-primary text-xl mr-2  bg-green-300 rounded-xl p-2"><FaHandshakeAngle /></span>

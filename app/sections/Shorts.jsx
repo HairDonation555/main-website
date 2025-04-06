@@ -32,11 +32,11 @@ function Shorts() {
     };
 
     return (
-        <div id='achievements' className='shorts-container'>
+        <div id='achievements' className='shorts-container md:mt-0 mt-6 mb-2'>
             <div className='flex flex-col items-center justify-center w-full'>
                <h2 className="text-black md:text-5xl text-center text-3xl mb-6 font-bold">Our Impact</h2>
                <p className='w-24 justify-center items-center border-2 border-primary mb-4'></p>
-               <p className='text-gray-500 text-center'>These aren't just numbers, they all represent restored smiles and confidence!</p>
+               <p className='text-gray-500 text-center mb-6 md:mb-18'>These aren't just numbers, they all represent restored smiles and confidence!</p>
               <Impact />
             </div>
 
@@ -44,12 +44,12 @@ function Shorts() {
                 <div className='marquee-content gap-2 flex' style={{ transform: `translateX(-${currentIndex * (100 / 3)}%)` }}>
                     {shortsData.map(short => (
                         <iframe
-                            className='short-iframe md:w-[310px] md:h-[506px] w-[200px] h-[406px]'
+                            className='short-iframe md:w-[310px] md:h-[506px] w-[100px] h-[306px]'
                             key={short.id}
                             src={`https://www.youtube.com/embed/${short.videoId}`}
                             title={`YouTube Short ${short.id}`}
                             frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allow="accelerometer; autoplay;  encrypted-media; gyroscope; picture-in-picture; web-share"
                             referrerPolicy="strict-origin-when-cross-origin"
                             allowFullScreen
                         ></iframe>
@@ -57,7 +57,7 @@ function Shorts() {
                 </div>
             </div>
 
-            <div className='flex gap-2 mt-4'>
+            <div className='flex gap-2 mt-2'>
                 {Array.from({ length: Math.ceil(shortsData.length / 3) }).map((_, index) => (
                     <div
                         key={index}

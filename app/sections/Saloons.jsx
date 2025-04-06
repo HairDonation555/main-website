@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { FaMapMarkerAlt, FaPhone, FaClock, FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import Anims from "../components/Anims";
 
 const saloonsData = [
   { id: 1, name: "Glamour Cuts", location: "123 Beauty Ave, New York, NY", phone: "(212) 555-1234", timing: "Mon-Sat: 9AM-7PM", offer: "Free cut for donors", imageUrl: "/images/hr5.png" },
@@ -62,10 +63,12 @@ const Saloons = () => {
       <h2 className="text-4xl font-bold mt-12 mb-4">Partner Salons</h2>
       <p className='w-24 border-2 border-white mb-4'></p>
       <p className="text-lg text-gray-200 mt-2">Our certified salon partners provide professional hair cutting services for donors</p>
-
+  
       <div className="flex justify-center gap-6 mt-6 md:p-12 w-full overflow-hidden">
         {currentCards.map((saloon) => (
-          <div key={saloon.id} className="bg-white p-6 rounded-lg shadow-lg w-80">
+
+         <div key={saloon.id} className="bg-white p-6 rounded-lg shadow-lg w-80">
+                       <Anims inAnimation="fadeIn" outAnimation="fadeOut" duration={ saloon.id*0.1} delay={0.2}>
             <div className="flex items-center gap-3 mb-4">
               <img src={saloon.imageUrl} alt={saloon.name} className="w-12 h-12 rounded-full" />
               <div>
@@ -82,7 +85,9 @@ const Saloons = () => {
               <span className="bg-pink-200 text-pink-600 px-2 py-1 rounded text-sm">Certified</span>
               <span className="text-gray-800 text-sm">{saloon.offer}</span>
             </div>
+            </Anims>
           </div>
+         
         ))}
       </div>
 
