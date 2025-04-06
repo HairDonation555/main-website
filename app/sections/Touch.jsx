@@ -7,12 +7,12 @@ import { FaPhoneAlt } from "react-icons/fa";
 
 const ContactSection = () => {
   return (
-    <div className="bg-gray-100 py-12 items-center justify-center md:px-12 lg:px-24">
+    <div className="bg-primary py-12 items-center justify-center md:px-12 lg:px-24">
       <div className="w-full items-center justify-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-white">
           Get In Touch
         </h2>
-        <p className="text-center text-gray-600 mt-2">
+        <p className="text-center text-white mt-2">
           Have questions? We're here to help with your hair donation journey.
         </p>
 

@@ -5,7 +5,7 @@ import Steps from '../components/Steps';
 
 function Process() {
   return (
-    <div id="donations" className="relative w-full  min-h-screen flex flex-col md:flex-row items-center">
+    <div id="donations" className="relative w-full mb-10 min-h-screen flex flex-col md:flex-row items-center">
       {/* Skewed Background for Text Section */}
 
 
@@ -19,25 +19,31 @@ function Process() {
           <h2 className="text-black md:text-5xl text-right text-3xl mb-4 font-bold">Our Process</h2>
           <p className='w-24 border-2 border-primary mb-0'></p>
         </div>
-        <div className="mt-0">
-          <ul className="mt-0 flex flex-col items-center space-y-4">
+        <div className="mt-0 items-center justify-center">
+          <ul className="mt-0 flex flex-col items-center space-y-6">
              <Steps num='1' step="Wash your hair thoroughly." />
              <Steps num='2' step="secure your hair with a rubber band." />
              <Steps num='3' step="Secure the middle with another rubber band." />
              <Steps num='4' step="Ensure the hair length is atleast 12 inches." />
              <Steps num='5' step="Cut above the top rubber band." />
              <Steps num='6' step="wrap the hair in a paper and store in a ziplock bag." />
+             <Buttons text="Get Poster" />
+    
           </ul>
+         
         </div>
+       
       </div>
-
+   
+   
         {/* Image Section (Responsive - Below Text on Mobile) */}
-        <img 
+        {/* <img 
         src='/images/poster.png' 
         className='w-full md:w-[400px] md:mr-[250px] md:scale-120 border-2 shadow-lg h-auto md:h-[580px] object-contain' 
         alt='About Us'
-      />
+      /> */}
       </div>
+     
     </div>
   );
 }

@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import Button from '../components/Buttons';
+import Anims from '../components/Anims';
 
 const images = [
   '/images/nh1.jpeg',
@@ -56,10 +57,16 @@ const Hero = () => {
       </div>
       <div className="relative bg-black/40 w-full h-full items-center justify-center z-10">
         <div className="md:mt-[600px] justify-center items-center text-center lg:mt-[300px]">
+        <Anims inAnimation='slideInUp' outAnimation='slideOutDown' delay={0.25}>
+       
           <h1 className="md:text-6xl md:w-full mt-[300px] md:mt-[600px] text-4xl font-bold mb-4">
             Donate hair, give hope,
+            <Anims inAnimation='scaleIn' outAnimation='scaleOut' delay={0.25}>
+       
             <span className="block cursive text-5xl md:text-7xl">change lives!</span>
+            </Anims>  
           </h1>
+          </Anims>  
           <p className="text-2xl mb-6">Be a Smile on someone’s Face!</p>
           <Button text="Donate" btnlink="/" />
         </div>

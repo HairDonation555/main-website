@@ -4,6 +4,7 @@ import React from "react";
 import { FaPlantWilt } from "react-icons/fa6";
 import { FaHandshakeSimple } from "react-icons/fa6";
 import { FaScissors } from "react-icons/fa6";
+import Anims from './Anims'
 
 const Volunteers = () => {
   return (
@@ -19,6 +20,8 @@ const Volunteers = () => {
         {/* Volunteer Roles */}
         <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Hair Sorting */}
+          <Anims inAnimation='slideInUp' outAnimation='slideOutDown'>
+       
           <div className="bg-white shadow-lg rounded-lg p-6 text-left">
             <span className="text-primary text-3xl"><FaScissors /></span>
             <h3 className="text-xl font-semibold text-gray-900 mt-2">
@@ -29,7 +32,9 @@ const Volunteers = () => {
             </p>
             <p className="text-gray-500 mt-2">⏳ 4 hours/week commitment</p>
           </div>
-
+          </Anims>  
+          <Anims inAnimation='slideInUp' outAnimation='slideOutDown'>
+       
           {/* Outreach Ambassador */}
           <div className="bg-white shadow-lg rounded-lg p-6 text-left">
             <span className="text-primary text-3xl"><FaHandshakeSimple /></span>
@@ -41,7 +46,10 @@ const Volunteers = () => {
             </p>
             <p className="text-gray-500 mt-2">⏳ Flexible hours</p>
           </div>
+          </Anims>  
 
+          <Anims inAnimation='slideInUp' outAnimation='slideOutDown'>
+       
           {/* Wig Assembly */}
           <div className="bg-white shadow-lg rounded-lg p-6 text-left">
             <span className="text-primary text-3xl"><FaPlantWilt /></span>
@@ -53,9 +61,12 @@ const Volunteers = () => {
             </p>
             <p className="text-gray-500 mt-2">⏳ 6 hours/week commitment</p>
           </div>
+
+          </Anims>
         </div>
 
         {/* Volunteer Signup Form */}
+        <Anims inAnimation='fadeIn' outAnimation='fadeOut'>
         <div className="mt-12 bg-white shadow-lg rounded-lg p-6 md:p-8 max-w-2xl mx-auto">
           <h3 className="text-2xl font-semibold text-gray-900 text-center">
             Become a Volunteer
@@ -96,6 +107,7 @@ const Volunteers = () => {
             </button>
           </form>
         </div>
+        </Anims>  
       </div>
     </div>
   );

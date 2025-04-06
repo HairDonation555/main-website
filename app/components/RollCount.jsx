@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
+// import Anims from "./Anims";
 
 const RollingNumber = ({ count = "1M+", countname = "" }) => {
   const [currentCount, setCurrentCount] = useState(0);
@@ -53,12 +54,14 @@ const RollingNumber = ({ count = "1M+", countname = "" }) => {
   };
 
   return (
+    // <Anims inAnimation='fadeIn' outAnimation='fadeOut'>
     <h2
       ref={ref}
       className="text-center text-2xl text-white flex flex-col w-36 text-center font-bold"
     >
-      <span className="text-primary font-bold">{currentCount.toLocaleString()}+</span> {countname}
+      <span className="text-white font-bold">{currentCount.toLocaleString()}+</span> {countname}
     </h2>
+    // </Anims>
   );
 };
 

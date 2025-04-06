@@ -19,8 +19,8 @@ export default function Home() {
       <Shorts />
       <Donations />
       <EventGallery />
-      <Process />
       <Saloons />
+      <Process />
       <Locations />
       <ContactSection />
       <Footer />
