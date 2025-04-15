@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import React, { useState } from 'react';
 import Anims from './Anims';
 import TouchPopup from './TouchPopup';
@@ -7,7 +8,7 @@ function Buttons(props) {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <div className="relative z-10">
+    <div className="relative z-100">
       {/* BUTTON */}
       <Anims inAnimation="fadeIn" outAnimation="fadeOut">
         <button
@@ -18,10 +19,17 @@ function Buttons(props) {
         </button>
       </Anims>
 
-      {/* FULLSCREEN MODAL OVERLAY */}
+      {/* MODAL OVERLAY */}
       {showModal && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center px-4 py-10 bg-black-40 bg-opacity-50 backdrop-blur-md transition duration-300">
-          <TouchPopup onClose={() => setShowModal(false)} />
+        <div className="fixed inset-0 z-[999] flex items-start justify-center px-4 py-10">
+          
+          {/* Background blur */}
+          <div className="absolute inset-0 backdrop-blur-md bg-black-30 bg-opacity-50 z-0" />
+
+          {/* Modal content */}
+          <div className="relative z-70">
+            <TouchPopup onClose={() => setShowModal(false)} />
+          </div>
         </div>
       )}
     </div>

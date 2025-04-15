@@ -41,7 +41,7 @@ function Navbar() {
       
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="absolute top-full left-0 z-25 w-full bg-white shadow-lg flex flex-col items-center gap-4 py-4 md:hidden">
+        <div className="absolute top-full left-0 z-15 w-full bg-white shadow-lg flex flex-col items-center gap-4 py-4 md:hidden">
           <Anims inAnimation='fadeIn' outAnimation='fadeOut'>
           <a className=" text-black text-left text-lg" onClick={() => setIsOpen(false)}>About</a>
           </Anims>

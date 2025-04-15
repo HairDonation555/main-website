@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import React, { useEffect, useState } from 'react';
 import Button from '../components/Buttons';
 import Anims from '../components/Anims';
@@ -14,30 +15,31 @@ const Hero = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Detect screen width
     const checkScreenSize = () => {
-      setIsMobile(window.innerWidth <= 1024); // Adjust for tablet/mobile
+      setIsMobile(window.innerWidth <= 1024);
     };
 
-    checkScreenSize(); // Initial check
+    checkScreenSize();
     window.addEventListener("resize", checkScreenSize);
 
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
   useEffect(() => {
-    if (!isMobile) return; // Stop switching images on desktop
+    if (!isMobile) return;
 
     const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % images.length); // Loop through images
+      setCurrentImage((prev) => (prev + 1) % images.length);
     }, 3000);
 
     return () => clearInterval(interval);
   }, [isMobile]);
 
   return (
-    <div className="relative flex flex-col items-center justify-center h-screen text-white text-center">
-      <div className="absolute inset-0 flex md:flex-row flex-col justify-around items-center">
+    <div className="relative w-full h-screen overflow-hidden text-white">
+      
+      {/* Background image(s) */}
+      <div className="absolute inset-0 z-0">
         {isMobile ? (
           <img 
             src={images[currentImage]} 
@@ -45,28 +47,35 @@ const Hero = () => {
             className="w-full h-full object-cover transition-opacity duration-500 ease-in-out"
           />
         ) : (
-          images.map((image, index) => (
-            <img 
-              key={index} 
-              src={image} 
-              alt={`Image ${index}`} 
-              className="w-1/3 h-full md:object-cover" 
-            />
-          ))
+          <div className="flex h-full">
+            {images.map((image, index) => (
+              <img 
+                key={index} 
+                src={image} 
+                alt={`Image ${index}`} 
+                className="w-1/3 h-full object-cover" 
+              />
+            ))}
+          </div>
         )}
       </div>
-      <div className="relative bg-black/40 w-full h-full items-center justify-center z-10">
-        <div className="md:mt-[600px] justify-center items-center text-center lg:mt-[300px]">
-        <Anims inAnimation='fadeIn' outAnimation='fadeOut' delay={0.25}>
-       
-          <h1 className="md:text-6xl md:w-full mt-[300px] md:mt-[600px] text-4xl font-bold mb-4">
-            Donate hair, give hope,
-            <Anims inAnimation='fadeIn' outAnimation='fadeOut' delay={0.25}>
-       
-            <span className="block cursive text-5xl md:text-7xl">change lives!</span>
-            </Anims>  
-          </h1>
-          </Anims>  
+
+      {/* Dark overlay blur */}
+      <div className="absolute inset-0 bg-black/40 z-0" />
+
+      {/* Foreground content */}
+      <div className="relative z-10 flex flex-col items-center justify-center w-full h-full text-center">
+        <div className="mt-[300px] md:mt-[600px] px-4">
+          <Anims inAnimation='fadeIn' outAnimation='fadeOut' delay={0.25}>
+            <h1 className="text-4xl md:text-6xl font-bold mb-4">
+              Donate hair, give hope,
+              <Anims inAnimation='fadeIn' outAnimation='fadeOut' delay={0.25}>
+                <span className="block cursive text-5xl md:text-7xl">
+                  change lives!
+                </span>
+              </Anims>
+            </h1>
+          </Anims>
           <p className="text-2xl mb-6">Be a Smile on someone’s Face!</p>
           <Button text="Donate" btnlink="/" />
         </div>

@@ -1,10 +1,10 @@
-// components/TouchPopup.jsx
+
 import React from 'react';
 
 const TouchPopup = ({ onClose }) => {
   return (
     <div
-      className="relative w-full max-w-2xl mx-auto mt-10 bg-white rounded-2xl shadow-xl p-6 animate-slideDown border border-gray-200"
+      className="relative w-full max-w-2xl z-75 md:z-100 mx-auto mt-10 bg-white rounded-2xl shadow-xl p-6 animate-slideDown border border-gray-200"
     >
       {/* Close Button */}
       <button
