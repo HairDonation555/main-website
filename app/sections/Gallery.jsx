@@ -3,6 +3,7 @@
 import React from "react";
 import Anims from "../components/Anims";
 
+// All images
 const events = [
   "/gallery/dono05.jpg",
   "/gallery/donor1.jpg",
@@ -23,13 +24,18 @@ const events = [
   "/gallery/donor9.jpg",
 ];
 
+// Split the events array into two halves
+const midpoint = Math.ceil(events.length / 2);
+const marqueeOne = events.slice(0, midpoint);
+const marqueeTwo = events.slice(midpoint);
+
 const EventGallery = () => {
   return (
     <div id="events" className="p-5 md:mt-12 md:mb-12 overflow-hidden bg-white">
       {/* Marquee Left to Right */}
       <div className="relative w-full overflow-hidden whitespace-nowrap">
         <div className="inline-block animate-marquee">
-          {[...events, ...events].map((url, index) => (
+          {[...marqueeOne, ...marqueeOne].map((url, index) => (
             <img
               key={`left-${index}`}
               src={url}
@@ -43,7 +49,7 @@ const EventGallery = () => {
       {/* Marquee Right to Left */}
       <div className="relative w-full overflow-hidden whitespace-nowrap mt-8">
         <div className="inline-block animate-marquee-reverse">
-          {[...events, ...events].map((url, index) => (
+          {[...marqueeTwo, ...marqueeTwo].map((url, index) => (
             <img
               key={`right-${index}`}
               src={url}
