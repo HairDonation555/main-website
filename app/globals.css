@@ -100,71 +100,35 @@
 /* SHORTS END */
 
 
-
-/* Base container for marquee */
-.marquee-containerG {
-  overflow: hidden;
-  white-space: nowrap;
-  display: flex;
-  width: 100%;
-}
-
-/* The scrolling marquee */
-.marqueeG {
-  display: flex;
-  gap: 1.5rem; /* Space between images */
-  min-width: 200%;
-}
-
-/* Image card styling */
-.gallery-card {
-  flex-shrink: 0;
-  width: 400px;
-  height: 300px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.gallery-image {
-  width: 100%;
-  height: 100%;
-  object-cover: cover;
-  border-radius: 10px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Continuous animation */
-@keyframes marquee-left {
-  from {
-    transform: translateX(-50%);
+@layer utilities {
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
-  to {
-    transform: translateX(0%);
+  
+  @keyframes marquee-reverse {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+  
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+    display: inline-flex;
+  }
+  
+  .animate-marquee-reverse {
+    animation: marquee-reverse 20s linear infinite;
+    display: inline-flex;
   }
 }
-
-@keyframes marquee-right {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-marquee-left {
-  animation: marquee-left 15s linear infinite;
-}
-
-.animate-marquee-right {
-  animation: marquee-right 15s linear infinite;
-}
-
-/* Pause marquee when hovered */
-.group:hover .animate-marquee-left,
-.group:hover .animate-marquee-right {
-  animation-play-state: paused;
-}
-
 /* Scale effect on hover */
 .gallery-card:hover {
   transform: scale(1.05);
