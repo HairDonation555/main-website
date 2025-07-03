@@ -9,7 +9,7 @@ const ContactSection = () => {
 
   const toggleForm = () => {
     setFormType((prev) => (prev === "consent" ? "contact" : "consent"));
-    setSuccessMessage(""); // clear message when switching forms
+    setSuccessMessage("");
   };
 
   const handleConsentSubmit = async (e) => {
@@ -62,69 +62,72 @@ const ContactSection = () => {
         <div className="mt-10 flex flex-col items-center p-2 justify-center gap-8">
           {formType === "consent" ? (
             <Anims inAnimation="fadeIn" outAnimation="fadeOut" delay={0.2}>
-              <div className="bg-white shadow-lg md:w-[500px] w-[300px] rounded-lg mb-8 p-6">
-                <h3 className="text-xl md:text-3xl font-semibold text-center text-primary mb-4">
+              <div className="bg-white shadow-lg w-full max-w-6xl rounded-lg mb-8 p-8">
+                <h3 className="text-xl md:text-3xl font-semibold text-center text-primary mb-6">
                   Hair Donation Consent Form
                 </h3>
-                <form className="space-y-4" onSubmit={handleConsentSubmit}>
+                <form className="space-y-6" onSubmit={handleConsentSubmit}>
                   <input name="formType" type="hidden" value="consent" />
                   <input name="timestamp" type="hidden" value={new Date().toISOString()} />
 
-                  <div>
-                    <label className="text-gray-700 block mb-1">Name of the Donor</label>
-                    <input name="Name" type="text" placeholder="Enter full name" className="input" required />
-                  </div>
-                  <div>
-                    <label className="text-gray-700 block mb-1">Age</label>
-                    <input name="age" type="number" placeholder="Enter age" className="input" required />
-                  </div>
-                  <div>
-                    <label className="text-gray-700 block mb-1">Gender</label>
-                    <select name="gender" className="input" required>
-                      <option value="">-- Select --</option>
-                      <option>Male</option>
-                      <option>Female</option>
-                      <option>Other</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="text-gray-700 block mb-1">Address</label>
-                    <textarea name="address" rows={2} placeholder="Enter address" className="input" required />
-                  </div>
-                  <div>
-                    <label className="text-gray-700 block mb-1">Date of Haircut</label>
-                    <input name="haircutDate" type="date" className="input" required />
-                  </div>
-                  <div>
-                    <label className="text-gray-700 block mb-1">Date of Courier</label>
-                    <input name="courierDate" type="date" className="input" required />
-                  </div>
-                  <div>
-                    <label className="text-gray-700 block mb-1">Guardian's Name (if minor)</label>
-                    <input name="guardianName" type="text" placeholder="Guardian's name" className="input" />
-                  </div>
-                  <div>
-                    <label className="text-gray-700 block mb-1">Have you donated hair before?</label>
-                    <div className="flex gap-4 mt-1">
-                      <label className="flex items-center gap-2">
-                        <input type="radio" name="donatedBefore" value="Yes" required /> Yes
-                      </label>
-                      <label className="flex items-center gap-2">
-                        <input type="radio" name="donatedBefore" value="No" /> No
-                      </label>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="text-gray-700 block mb-1">Name of the Donor</label>
+                      <input name="Name" type="text" placeholder="Enter full name" className="input" required />
+                    </div>
+                    <div>
+                      <label className="text-gray-700 block mb-1">Age</label>
+                      <input name="age" type="number" placeholder="Enter age" className="input" required />
+                    </div>
+                    <div>
+                      <label className="text-gray-700 block mb-1">Gender</label>
+                      <select name="gender" className="input" required>
+                        <option value="">-- Select --</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="text-gray-700 block mb-1">Guardian's Name (if minor)</label>
+                      <input name="guardianName" type="text" placeholder="Guardian's name" className="input" />
+                    </div>
+                    <div className="md:col-span-2">
+                      <label className="text-gray-700 block mb-1">Address</label>
+                      <textarea name="address" rows={2} placeholder="Enter address" className="input w-full" required />
+                    </div>
+                    <div>
+                      <label className="text-gray-700 block mb-1">Date of Haircut</label>
+                      <input name="haircutDate" type="date" className="input" required />
+                    </div>
+                    <div>
+                      <label className="text-gray-700 block mb-1">Date of Courier</label>
+                      <input name="courierDate" type="date" className="input" required />
+                    </div>
+                    <div className="md:col-span-2">
+                      <label className="text-gray-700 block mb-1">Have you donated hair before?</label>
+                      <div className="flex gap-6 mt-1">
+                        <label className="flex items-center gap-2">
+                          <input type="radio" name="donatedBefore" value="Yes" required /> Yes
+                        </label>
+                        <label className="flex items-center gap-2">
+                          <input type="radio" name="donatedBefore" value="No" /> No
+                        </label>
+                      </div>
+                    </div>
+                    <div className="md:col-span-2">
+                      <label className="text-gray-700 block mb-1">If Yes, where?</label>
+                      <input name="donatedWhere" type="text" placeholder="Mention organization/place" className="input w-full" />
+                    </div>
+                    <div className="md:col-span-2">
+                      <label className="text-gray-700 block mb-1">Feedback</label>
+                      <textarea name="feedback" rows={3} placeholder="Your experience or comments" className="input w-full" />
                     </div>
                   </div>
-                  <div>
-                    <label className="text-gray-700 block mb-1">If Yes, where?</label>
-                    <input name="donatedWhere" type="text" placeholder="Mention organization/place" className="input" />
-                  </div>
-                  <div>
-                    <label className="text-gray-700 block mb-1">Feedback</label>
-                    <textarea name="feedback" rows={3} placeholder="Your experience or comments" className="input" />
-                  </div>
+
                   <button
                     type="submit"
-                    className="w-full bg-primary text-white py-2 rounded-md hover:bg-opacity-90 transition duration-200"
+                    className="w-full bg-primary text-white py-2 rounded-md hover:bg-opacity-90 transition duration-200 mt-4"
                   >
                     Submit Consent Form
                   </button>

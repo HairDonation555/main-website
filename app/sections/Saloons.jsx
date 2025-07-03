@@ -1,110 +1,123 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { FaMapMarkerAlt, FaPhone, FaClock, FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import React, { useEffect, useState } from "react";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import Anims from "../components/Anims";
 
-const saloonsData = [
-  { id: 1, name: "Glamour Cuts", location: "123 Beauty Ave, New York, NY", phone: "(212) 555-1234", timing: "Mon-Sat: 9AM-7PM", offer: "Free cut for donors", imageUrl: "/images/hr5.png" },
-  { id: 2, name: "Shear Elegance", location: "456 Style St, Los Angeles, CA", phone: "(310) 555-5678", timing: "Mon-Fri: 8AM-6PM, Sat: 9AM-5PM", offer: "20% discount for donors", imageUrl: "/images/hr3.png" },
-  { id: 3, name: "Tress Studio", location: "789 Hair Blvd, Chicago, IL", phone: "(312) 555-9012", timing: "Tue-Sat: 10AM-8PM", offer: "Free styling with donation", imageUrl: "/images/hr12.png" },
-  { id: 4, name: "Salon D", location: "101 Main St, Miami, FL", phone: "(305) 555-7890", timing: "Mon-Fri: 10AM-6PM", offer: "Discounted hair treatments", imageUrl: "/images/hr5.png" },
-  { id: 5, name: "Salon E", location: "202 Broadway, San Francisco, CA", phone: "(415) 555-4567", timing: "Wed-Sun: 11AM-7PM", offer: "Special offers for donors", imageUrl: "/images/hr3.png" },
-  { id: 6, name: "Salon E", location: "202 Broadway, San Francisco, CA", phone: "(415) 555-4567", timing: "Wed-Sun: 11AM-7PM", offer: "Special offers for donors", imageUrl: "/images/hr3.png" },
-  { id: 7, name: "Salon E", location: "202 Broadway, San Francisco, CA", phone: "(415) 555-4567", timing: "Wed-Sun: 11AM-7PM", offer: "Special offers for donors", imageUrl: "/images/hr3.png" },
-  { id: 8, name: "Salon E", location: "202 Broadway, San Francisco, CA", phone: "(415) 555-4567", timing: "Wed-Sun: 11AM-7PM", offer: "Special offers for donors", imageUrl: "/images/hr3.png" },
-  { id: 9, name: "Salon E", location: "202 Broadway, San Francisco, CA", phone: "(415) 555-4567", timing: "Wed-Sun: 11AM-7PM", offer: "Special offers for donors", imageUrl: "/images/hr3.png" },
+const prominentLocations = [
+  "Hyderabad", "Visakhapatnam", "Vijayawada", "Guntur", "Warangal",
+  "Tirupati", "Nellore", "Karimnagar", "Rajahmundry", "Kakinada",
+  "Delhi", "Mumbai", "Bangalore", "Chennai", "Kolkata",
+  "Pune", "Ahmedabad", "Jaipur", "Lucknow", "Coimbatore",
+  "Kurnool", "Kadapa", "Anantapur", "Ongole", "Eluru",
+  "Nizamabad", "Adilabad", "Srikakulam", "Vizianagaram", "Machilipatnam",
+  "Mangalagiri", "Bhadradri", "Amaravati", "Medak", "Khammam"
 ];
 
 const Saloons = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [cardsPerSlide, setCardsPerSlide] = useState(3);
-  const totalSlides = Math.ceil(saloonsData.length / cardsPerSlide);
-
-  useEffect(() => {
-    const updateCardsPerSlide = () => {
-      if (window.innerWidth < 640) {
-        setCardsPerSlide(1);
-      } else if (window.innerWidth < 1024) {
-        setCardsPerSlide(2);
-      } else {
-        setCardsPerSlide(3);
-      }
-    };
-
-    updateCardsPerSlide();
-    window.addEventListener("resize", updateCardsPerSlide);
-    return () => window.removeEventListener("resize", updateCardsPerSlide);
-  }, []);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [positions, setPositions] = useState([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      handleNext();
-    }, 4000);
+      setActiveIndex((prev) => (prev + 1) % prominentLocations.length);
+    }, 2000);
     return () => clearInterval(interval);
-  }, [currentSlide, cardsPerSlide]);
+  }, []);
 
-  const handleNext = () => {
-    setCurrentSlide((prev) => (prev + 1) % totalSlides);
-  };
+  useEffect(() => {
+    const buffer = 5;
+    const radius = 8;
+    const attempts = [];
+    const newPositions = [];
 
-  const handlePrev = () => {
-    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
-  };
+    const generateNonOverlappingPosition = (existing) => {
+      let top, left, tries = 0, collision;
+      do {
+        top = buffer + Math.random() * (100 - 2 * buffer);
+        left = buffer + Math.random() * (100 - 2 * buffer);
+        collision = existing.some(pos => {
+          const dx = pos.left - left;
+          const dy = pos.top - top;
+          return Math.sqrt(dx * dx + dy * dy) < radius;
+        });
+        tries++;
+      } while (collision && tries < 100);
+      return { top, left };
+    };
 
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-  };
+    prominentLocations.forEach(() => {
+      const pos = generateNonOverlappingPosition(newPositions);
+      newPositions.push(pos);
+    });
 
-  const currentCards = saloonsData.slice(currentSlide * cardsPerSlide, (currentSlide + 1) * cardsPerSlide);
+    setPositions(newPositions);
+  }, []);
 
   return (
-    <div className="flex flex-col items-center p-6 bg-primary text-white w-full">
-      <h2 className="text-4xl font-bold mt-12 mb-4">Partner Salons</h2>
-      <p className='w-24 border-2 border-white mb-4'></p>
-      <p className="text-lg text-gray-200 mt-2">Our certified salon partners provide professional hair cutting services for donors</p>
-  
-      <div className="flex justify-center gap-6 mt-6 md:p-12 w-full overflow-hidden">
-        {currentCards.map((saloon) => (
+    <div className="relative flex flex-col items-center p-6 bg-primary text-white w-full overflow-hidden">
+      <div className="absolute top-0 bottom-0 left-0 w-32 bg-gradient-to-r from-primary via-transparent to-transparent z-10 pointer-events-none" />
+      <div className="absolute top-0 bottom-0 right-0 w-32 bg-gradient-to-l from-primary via-transparent to-transparent z-10 pointer-events-none" />
 
-         <div key={saloon.id} className="bg-white p-6 rounded-lg shadow-lg w-80">
-                       <Anims inAnimation="fadeIn" outAnimation="fadeOut" duration={ saloon.id*0.1} delay={0.2}>
-            <div className="flex items-center gap-3 mb-4">
-              <img src={saloon.imageUrl} alt={saloon.name} className="w-12 h-12 rounded-full" />
-              <div>
-                <h3 className="text-xl font-bold text-gray-800">{saloon.name}</h3>
-                <div className="flex items-center text-yellow-500">★★★★★</div>
-              </div>
-            </div>
-            <div className="text-gray-600">
-              <p className="flex items-center gap-2"><FaMapMarkerAlt /> {saloon.location}</p>
-              <p className="flex items-center gap-2"><FaPhone /> {saloon.phone}</p>
-              <p className="flex items-center gap-2"><FaClock /> {saloon.timing}</p>
-            </div>
-            <div className="flex justify-between mt-4">
-              <span className="bg-pink-200 text-pink-600 px-2 py-1 rounded text-sm">Certified</span>
-              <span className="text-gray-800 text-sm">{saloon.offer}</span>
-            </div>
+      <h2 className="text-4xl font-bold mt-12 mb-4 text-center z-20">Partner Salon Locations</h2>
+      <p className="w-24 border-2 border-white mb-4 z-20" />
+      <p className="text-lg text-gray-200 mt-2 text-center max-w-2xl z-20">
+        Our certified salon partners are located in the most prominent areas of India,
+        offering convenient hair donation support throughout the country.
+      </p>
+
+      <div className="relative w-full h-[100vh] z-20">
+        {prominentLocations.map((name, index) => {
+          const isActive = index === activeIndex;
+          return (
+            <Anims key={index} inAnimation="fadeIn" outAnimation="fadeOut" delay={index * 0.05}>
+              <button
+                className={`absolute font-semibold px-2 py-1 md:px-4 md:py-2 rounded-full shadow-md transition-all duration-300 hover:scale-110 hover:z-[60] ${
+                  isActive ? "ring-2 ring-white glow" : ""
+                }`}
+                style={{
+                  top: `${positions[index]?.top}%`,
+                  left: `${positions[index]?.left}%`,
+                  transform: "translate(-50%, -50%)",
+                  background: isActive ? "#ffffff" : "#b6e2dd",
+                  color: isActive ? "#006c7c" : "#003c40",
+                  animation: isActive ? "pulse-glow 3s ease-in-out infinite" : "none",
+                  boxShadow: isActive
+                    ? "0 0 20px rgba(255, 255, 255, 0.6)"
+                    : "0 0 6px rgba(0,0,0,0.15)",
+                  zIndex: isActive ? 50 : 10,
+                  opacity: 0.95,
+                  fontSize: "0.6rem",
+                }}
+              >
+                <span className="flex items-center gap-2 text-xs md:text-sm whitespace-nowrap">
+                  <FaMapMarkerAlt className={isActive ? "text-[#006c7c]" : "text-[#004d55]"} /> {name}
+                </span>
+              </button>
             </Anims>
-          </div>
-         
-        ))}
+          );
+        })}
       </div>
 
-      <div className="flex gap-4 justify-center my-6">
-        <button onClick={handlePrev} className="bg-white cursor-pointer text-black p-2 rounded-full hover:bg-gray-300"><FaArrowLeft /></button>
-        <button onClick={handleNext} className="bg-white cursor-pointer text-black p-2 rounded-full hover:bg-gray-300"><FaArrowRight /></button>
-      </div>
+      <style jsx>{`
+        @keyframes pulse-glow {
+          0% {
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+          }
+          50% {
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+          }
+          100% {
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+          }
+        }
 
-      <div className="flex gap-2">
-        {Array.from({ length: totalSlides }).map((_, index) => (
-          <button
-            key={index}
-            className={`w-3 h-3 rounded-full ${index === currentSlide ? "bg-white" : "bg-gray-400"}`}
-            onClick={() => goToSlide(index)}
-          />
-        ))}
-      </div>
+        @media (min-width: 768px) {
+          button {
+            font-size: 0.875rem !important;
+          }
+        }
+      `}</style>
     </div>
   );
 };

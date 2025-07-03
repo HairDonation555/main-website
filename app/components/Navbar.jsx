@@ -9,7 +9,7 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex fixed py-2 md:px-8 px-4 gap-2 w-full items-center justify-between shadow-xl relative">
+    <div className="flex fixed py-2 md:px-8 px-4 gap-2 w-full items-center shadow-xl relative">
       {/* Logo and Title */}
         <Logo />
       {/* Desktop Navigation */}
