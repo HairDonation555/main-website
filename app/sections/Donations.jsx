@@ -34,7 +34,7 @@ function Donations() {
       {/* Section Heading */}
       <div className="text-center mb-2 md:p-2 md:mb-10">
         <Anims inAnimation="fadeIn" outAnimation="fadeOut">
-          <h2 className="text-3xl md:text-5xl md:mt-12 font-bold text-white">Wig Donations</h2>
+          <h2 className="text-3xl md:text-5xl md:mt-12 mt-6 font-bold text-white">Wig Donations</h2>
           <div className="w-24 border-2 border-primary mx-auto mt-2"></div>
         </Anims>
       </div>

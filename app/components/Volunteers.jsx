@@ -6,20 +6,23 @@ import Anims from "./Anims";
 
 const Volunteers = () => {
   const [successMessage, setSuccessMessage] = useState("");
+  const [isSending, setIsSending] = useState(false);
 
   const handleVolunteerSubmit = async (e) => {
     e.preventDefault();
+    setIsSending(true);
     const formData = new FormData(e.target);
     formData.append("formType", "volunteer");
 
     await fetch(
-      "https://script.google.com/macros/s/AKfycbw0EK_ItIjuO9oz52DVRbgczd8C52y8ipEIcaTVRT-Mes_oBRxzj7qyH_nRX4-LDJtIhw/exec",
+      "https://script.google.com/macros/s/AKfycbyfzt1jn2GAym_UU9TWAFJq0DHO25XQ-PFWnhzpV4WPko0qm6xVJeRxyv3NTTJGM5mGew/exec",
       {
         method: "POST",
         body: formData,
       }
     );
 
+    setIsSending(false);
     setSuccessMessage("Volunteer application submitted successfully!");
     e.target.reset();
   };
@@ -130,7 +133,7 @@ const Volunteers = () => {
                 type="submit"
                 className="w-full bg-primary text-white py-2 rounded-md hover:bg-opacity-90 transition duration-200"
               >
-                Apply Now
+                {isSending ? "Sending..." : "Apply Now"}
               </button>
 
               {successMessage && (

@@ -71,7 +71,7 @@ const Hero = () => {
               Donate hair, give hope,
               <Anims inAnimation='fadeIn' outAnimation='fadeOut' delay={0.25}>
                 <span className="block cursive text-5xl md:text-7xl">
-                  change lives!
+                  Change lives!
                 </span>
               </Anims>
             </h1>
