@@ -7,7 +7,7 @@ import Anims from '../components/Anims';
 const images = [
   '/images/nh1.jpeg',
   '/images/hr1.png',
-  '/images/hr4.png',
+  '/images/don1.jpeg',
 ];
 
 const Hero = () => {
