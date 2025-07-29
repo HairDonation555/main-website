@@ -4,11 +4,13 @@ import Anims from "../components/Anims";
 import { FaCheck } from "react-icons/fa6";
 
 const imageArray = [
-  "/images/hr8.png",
-  "/images/hr9.png",
-  "/images/after.jpg",
-  "/images/before.jpg",
-  "/images/hr11.png",
+  "/images/don1.jpeg",
+"/images/don2.jpeg",
+"/images/don3.jpeg",
+"/images/don4.jpeg",
+"/images/don5.jpeg",
+"/images/don6.jpeg",
+"/images/don7.jpeg",
 ];
 
 function Donations() {
@@ -30,19 +32,19 @@ function Donations() {
   };
 
   return (
-    <div className="flex flex-col bg-primary mb-10 md:px-10">
+    <div className="flex flex-col bg-primary  md:px-10">
       {/* Section Heading */}
-      <div className="text-center mb-2 md:p-2 md:mb-10">
+      <div className="text-center md:p-2 ">
         <Anims inAnimation="fadeIn" outAnimation="fadeOut">
           <h2 className="text-3xl md:text-5xl md:mt-12 mt-6 font-bold text-white">Wig Donations</h2>
           <div className="w-24 border-2 border-primary mx-auto mt-2"></div>
         </Anims>
       </div>
 
-      <div className="flex flex-col-reverse md:flex-row items-center justify-center m-10 p-4 gap-14">
+      <div className="flex flex-col-reverse md:flex-row items-center justify-center m-6 p-4 gap-14">
       
               {/* Image Slider Section */}
-              <div className="relative w-full md:w-[600px] bg-primary h-[400px] md:h-[600px] shadow-xl rounded-2xl overflow-hidden">
+              <div className="relative w-full md:w-[600px] bg-primary h-[400px] md:h-[600px] shadow-xl rounded-md overflow-hidden">
           <Anims inAnimation="fadeIn" outAnimation="fadeOut">
             {imageArray.map((image, index) => (
               <img

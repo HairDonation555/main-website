@@ -44,20 +44,7 @@ function Footer() {
 
       {/* Right Section - Socials & WhatsApp */}
       <div className='flex flex-col gap-8 items-center md:items-start w-full md:w-1/3'>
-
-        {/* Socials */}
-        <div className='flex flex-col gap-4 items-center md:items-start'>
-          <h1 className='text-2xl font-bold text-gray-900'>Socials</h1>
-          <div className='flex gap-4'>
-            <a className='hover:text-blue-800 text-primary transition-transform hover:scale-110 cursor-pointer'><FiFacebook className='w-8 h-8' /></a>
-            <a className='hover:text-red-700 text-primary transition-transform hover:scale-110 cursor-pointer'><FiYoutube className='w-8 h-8 ' /></a>
-            <a className='hover:text-blue-500 text-primary transition-transform hover:scale-110 cursor-pointer'><FiTwitter className='w-8 h-8 ' /></a>
-            <a className='hover:text-pink-600 text-primary transition-transform hover:scale-110 cursor-pointer'><FiInstagram className='w-8 h-8 ' /></a>
-          </div>
-        </div>
-
-        {/* WhatsApp Contact */}
-        <div className='flex flex-col gap-4 items-center md:items-start'>
+  <div className='flex flex-col gap-4 items-center md:items-start'>
           <h1 className='text-2xl font-bold text-gray-900'>Reach us</h1>
           <p className='text-gray-700'>Contact us through WhatsApp!</p>
           <div className="flex items-center gap-2 text-black">
@@ -67,6 +54,19 @@ function Footer() {
             </p>
           </div>
         </div>
+        
+        {/* Socials */}
+        <div className='flex flex-col gap-4 items-center md:items-start'>
+          <h1 className='text-2xl font-bold text-gray-900'>Socials</h1>
+          <div className='flex gap-8'>
+            <a className='hover:text-blue-800 text-primary transition-transform hover:scale-110 cursor-pointer'><FiFacebook className='w-8 h-8' /></a>
+            <a className='hover:text-red-700 text-primary transition-transform hover:scale-110 cursor-pointer'><FiYoutube className='w-8 h-8 ' /></a>
+            <a className='hover:text-pink-600 text-primary transition-transform hover:scale-110 cursor-pointer'><FiInstagram className='w-8 h-8 ' /></a>
+          </div>
+        </div>
+
+        {/* WhatsApp Contact */}
+      
 
       </div>
 

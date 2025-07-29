@@ -5,7 +5,7 @@ function Logo() {
     <a href='/'>
     <div className="flex items-center gap-2">
     <Anims inAnimation='fadeIn' outAnimation='fadeOut'>
-        <img className="primary rounded-full p-6 bg-black w-14 h-14" alt="logo" />
+        <img className=" rounded-full  w-22 h-16 scale-175" src='/images/logo.png' alt="logo" />
         </Anims>
 
         <Anims inAnimation='fadeIn' outAnimation='fadeOut'>
