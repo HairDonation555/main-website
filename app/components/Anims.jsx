@@ -15,45 +15,49 @@ const Anims = ({
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (inView) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
+    // Avoid triggering twice during hydration
+    requestAnimationFrame(() => {
+      setIsVisible(inView);
+    });
   }, [inView]);
 
   const animations = {
-    fadeIn: { opacity: 1, transition: { duration, delay } },
-    fadeOut: { opacity: 0, transition: { duration, delay } },
+    fadeIn: {
+      opacity: 1,
+      transition: { duration, delay },
+    },
+    fadeOut: {
+      opacity: 0,
+      transition: { duration, delay },
+    },
 
-    // Use relative units for better mobile responsiveness
     slideInLeft: {
-      x: 0,
+      x: "0%",
       opacity: 1,
       transition: { duration, delay },
     },
     slideOutLeft: {
-      x: "-10vw",
+      x: "-10%",
       opacity: 0,
       transition: { duration, delay },
     },
     slideInRight: {
-      x: 0,
+      x: "0%",
       opacity: 1,
       transition: { duration, delay },
     },
     slideOutRight: {
-      x: "10vw",
+      x: "10%",
       opacity: 0,
       transition: { duration, delay },
     },
     slideInUp: {
-      y: 0,
+      y: "0%",
       opacity: 1,
       transition: { duration, delay },
     },
     slideOutDown: {
-      y: "10vh",
+      y: "10%",
       opacity: 0,
       transition: { duration, delay },
     },
@@ -63,7 +67,7 @@ const Anims = ({
       transition: { duration, delay },
     },
     scaleOut: {
-      scale: 1.2,
+      scale: 1.05,
       opacity: 0,
       transition: { duration, delay },
     },
@@ -72,8 +76,13 @@ const Anims = ({
   return (
     <motion.div
       ref={ref}
-      initial={false}
+      initial={false} // ✅ Prevents re-running animation on mount in iOS
       animate={isVisible ? animations[inAnimation] : animations[outAnimation]}
+      style={{
+        willChange: "transform, opacity", // ✅ Hints GPU acceleration
+        WebkitBackfaceVisibility: "hidden", // ✅ Fixes Safari flicker
+        WebkitTransform: "translateZ(0)", // ✅ Forces GPU compositing on iOS
+      }}
     >
       {children}
     </motion.div>
