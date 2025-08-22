@@ -45,12 +45,12 @@ function Donations() {
     <div className="flex flex-col bg-primary md:px-10">
       {/* Section Heading */}
       <div className="text-center md:p-2">
-        <Anims inAnimation="fadeIn" outAnimation="fadeOut">
+        {/* <Anims inAnimation="fadeIn" outAnimation="fadeOut"> */}
           <h2 className="text-3xl md:text-5xl md:mt-12 mt-6 font-bold text-white">
             Wig Donations
           </h2>
           <div className="w-24 border-2 border-primary mx-auto mt-2"></div>
-        </Anims>
+        {/* </Anims> */}
       </div>
 
       <div className="flex flex-col-reverse md:flex-row items-center justify-center m-6 p-4 gap-14">
@@ -93,7 +93,7 @@ function Donations() {
 
           <h3 className="text-xl font-bold text-white">How Your Donation Helps</h3>
           <ul className="space-y-4">
-            <Anims inAnimation="fadeIn" outAnimation="fadeOut">
+            {/* <Anims inAnimation="fadeIn" outAnimation="fadeOut"> */}
               <li className="flex items-start gap-3">
                 <span className="bg-green-300 text-primary text-xl p-2 rounded-xl">
                   <FaCheck />
@@ -102,10 +102,10 @@ function Donations() {
                   100% of donated hair is used to create high quality wigs.
                 </span>
               </li>
-            </Anims>
+            {/* </Anims> */}
 
-            <Anims inAnimation="fadeIn" outAnimation="fadeOut">
-              <li className="flex items-start gap-3">
+            {/* <Anims inAnimation="fadeIn" outAnimation="fadeOut"> */}
+              <li className="flex items-start gap-3"> 
                 <span className="bg-green-300 text-primary text-xl p-2 rounded-xl">
                   <FaCheck />
                 </span>
@@ -114,9 +114,9 @@ function Donations() {
                   recipients.
                 </span>
               </li>
-            </Anims>
+            {/* </Anims> */}
 
-            <Anims inAnimation="fadeIn" outAnimation="fadeOut">
+            {/* <Anims inAnimation="fadeIn" outAnimation="fadeOut"> */}
               <li className="flex items-start gap-3">
                 <span className="bg-green-300 text-primary text-xl p-2 rounded-xl">
                   <FaCheck />
@@ -125,7 +125,7 @@ function Donations() {
                   Custom fittings ensure comfort and natural appearance.
                 </span>
               </li>
-            </Anims>
+            {/* </Anims> */}
           </ul>
         </div>
       </div>

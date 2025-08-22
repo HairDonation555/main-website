@@ -11,7 +11,7 @@ function Impact() {
       
       {/* YouTube Play Buttons Section */}
       <div className="flex flex-col md:flex-row justify-center items-center gap-10 mb-16">
-        <Anims inAnimation="fadeIn" outAnimation="fadeOut" delay={0.1}>
+        {/* <Anims inAnimation="fadeIn" outAnimation="fadeOut" delay={0.1}> */}
    <div className="relative group">
   {/* Subtle glass glow */}
   <div className="absolute inset-0 bg-gradient-to-br from-yellow-200/40 via-transparent to-yellow-500/30 rounded-md blur-md opacity-0 group-hover:opacity-100 transition duration-500"></div>
@@ -41,9 +41,9 @@ function Impact() {
   </div>
 </div>
 
-        </Anims>
+        {/* </Anims> */}
 
-        <Anims inAnimation="fadeIn" outAnimation="fadeOut" delay={0.2}>
+        {/* <Anims inAnimation="fadeIn" outAnimation="fadeOut" delay={0.2}> */}
           <div className="relative group">
   {/* Subtle glass glow */}
   <div className="absolute inset-0 bg-gradient-to-br from-yellow-200/40 via-transparent to-yellow-500/30 rounded-md blur-md opacity-0 group-hover:opacity-100 transition duration-500"></div>
@@ -73,28 +73,28 @@ function Impact() {
   </div>
 </div>
 
-        </Anims>
+        {/* </Anims> */}
       </div>
 
       {/* Rolling Numbers Section */}
       <div className="flex flex-col md:flex-row justify-around items-center text-center gap-10">
-        <Anims inAnimation="fadeIn" outAnimation="fadeOut" delay={0.3}>
+        {/* <Anims inAnimation="fadeIn" outAnimation="fadeOut" delay={0.3}> */}
           <div className="p-10 bg-primary rounded-md flex flex-col items-center w-64 shadow-lg">
             <RollingNumber count="1M+" countname="Subscribers" />
           </div>
-        </Anims>
+        {/* </Anims> */}
 
-        <Anims inAnimation="fadeIn" outAnimation="fadeOut" delay={0.4}>
+        {/* <Anims inAnimation="fadeIn" outAnimation="fadeOut" delay={0.4}> */}
           <div className="p-10 bg-primary rounded-md flex flex-col items-center w-64 shadow-lg">
             <RollingNumber count="50+" countname="Saloons" />
           </div>
-        </Anims>
+        {/* </Anims> */}
 
-        <Anims inAnimation="fadeIn" outAnimation="fadeOut" delay={0.5}>
+        {/* <Anims inAnimation="fadeIn" outAnimation="fadeOut" delay={0.5}> */}
           <div className="p-10 bg-primary rounded-md flex flex-col items-center w-64 shadow-lg">
             <RollingNumber count="3000+" countname="Donors" />
           </div>
-        </Anims>
+        {/* </Anims> */}
       </div>
 
     </div>

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { FaPlantWilt, FaHandshakeSimple, FaScissors } from "react-icons/fa6";
-import Anims from "./Anims";
+// import Anims from "./Anims";
 
 const Volunteers = () => {
   const [successMessage, setSuccessMessage] = useState("");
@@ -39,7 +39,7 @@ const Volunteers = () => {
 
         {/* Volunteer Roles */}
         <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Anims inAnimation="fadeIn" outAnimation="fadeOut">
+          {/* <Anims inAnimation="fadeIn" outAnimation="fadeOut"> */}
             <div className="bg-white shadow-lg rounded-lg p-6 text-left">
               <span className="text-primary text-3xl">
                 <FaScissors />
@@ -52,9 +52,9 @@ const Volunteers = () => {
               </p>
               <p className="text-gray-500 mt-2">⏳ 4 hours/week commitment</p>
             </div>
-          </Anims>
+          {/* </Anims> */}
 
-          <Anims inAnimation="fadeIn" outAnimation="fadeOut">
+          {/* <Anims inAnimation="fadeIn" outAnimation="fadeOut"> */}
             <div className="bg-white shadow-lg rounded-lg p-6 text-left">
               <span className="text-primary text-3xl">
                 <FaHandshakeSimple />
@@ -67,9 +67,9 @@ const Volunteers = () => {
               </p>
               <p className="text-gray-500 mt-2">⏳ Flexible hours</p>
             </div>
-          </Anims>
+          {/* </Anims> */}
 
-          <Anims inAnimation="fadeIn" outAnimation="fadeOut">
+          {/* <Anims inAnimation="fadeIn" outAnimation="fadeOut"> */}
             <div className="bg-white shadow-lg rounded-lg p-6 text-left">
               <span className="text-primary text-3xl">
                 <FaPlantWilt />
@@ -82,11 +82,11 @@ const Volunteers = () => {
               </p>
               <p className="text-gray-500 mt-2">⏳ 6 hours/week commitment</p>
             </div>
-          </Anims>
+          {/* </Anims> */}
         </div>
 
         {/* Volunteer Signup Form */}
-        <Anims inAnimation="fadeIn" outAnimation="fadeOut">
+        {/* <Anims inAnimation="fadeIn" outAnimation="fadeOut"> */}
           <div className="mt-12 bg-white shadow-lg rounded-lg p-6 md:p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl font-semibold text-gray-900 text-center">
               Become a Volunteer
@@ -143,7 +143,7 @@ const Volunteers = () => {
               )}
             </form>
           </div>
-        </Anims>
+        {/* </Anims> */}
       </div>
     </div>
   );
