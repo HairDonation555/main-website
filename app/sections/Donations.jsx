@@ -5,16 +5,24 @@ import { FaCheck } from "react-icons/fa6";
 
 const imageArray = [
   "/images/don1.jpeg",
-"/images/don2.jpeg",
-"/images/don3.jpeg",
-"/images/don4.jpeg",
-"/images/don5.jpeg",
-"/images/don6.jpeg",
-"/images/don7.jpeg",
+  "/images/don2.jpeg",
+  "/images/don3.jpeg",
+  "/images/don4.jpeg",
+  "/images/don5.jpeg",
+  "/images/don6.jpeg",
+  "/images/don7.jpeg",
 ];
 
 function Donations() {
   const [currentImage, setCurrentImage] = useState(0);
+
+  // Preload images once
+  useEffect(() => {
+    imageArray.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -28,35 +36,38 @@ function Donations() {
   };
 
   const prevImage = () => {
-    setCurrentImage((prevImage) => (prevImage - 1 + imageArray.length) % imageArray.length);
+    setCurrentImage(
+      (prevImage) => (prevImage - 1 + imageArray.length) % imageArray.length
+    );
   };
 
   return (
-    <div className="flex flex-col bg-primary  md:px-10">
+    <div className="flex flex-col bg-primary md:px-10">
       {/* Section Heading */}
-      <div className="text-center md:p-2 ">
+      <div className="text-center md:p-2">
         <Anims inAnimation="fadeIn" outAnimation="fadeOut">
-          <h2 className="text-3xl md:text-5xl md:mt-12 mt-6 font-bold text-white">Wig Donations</h2>
+          <h2 className="text-3xl md:text-5xl md:mt-12 mt-6 font-bold text-white">
+            Wig Donations
+          </h2>
           <div className="w-24 border-2 border-primary mx-auto mt-2"></div>
         </Anims>
       </div>
 
       <div className="flex flex-col-reverse md:flex-row items-center justify-center m-6 p-4 gap-14">
-      
-              {/* Image Slider Section */}
-              <div className="relative w-full md:w-[600px] bg-primary h-[400px] md:h-[600px] shadow-xl rounded-md overflow-hidden">
-          <Anims inAnimation="fadeIn" outAnimation="fadeOut">
-            {imageArray.map((image, index) => (
+        {/* Image Slider Section */}
+        <div className="relative w-full md:w-[600px] h-[400px] md:h-[600px] shadow-xl rounded-md overflow-hidden">
+          {imageArray.map((image, index) => (
+          
               <img
-                key={index}
                 src={image}
-                alt="Wig Donation"
+                 key={index}
+                alt={`Wig Donation ${index + 1}`}
                 className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
                   index === currentImage ? "opacity-100" : "opacity-0"
                 }`}
               />
-            ))}
-          </Anims>
+        
+          ))}
 
           {/* Nav Buttons */}
           <button
@@ -72,11 +83,12 @@ function Donations() {
             ❯
           </button>
         </div>
-      
+
         {/* Text Section */}
         <div className="md:w-1/2 w-full flex flex-col gap-6 text-left">
           <p className="text-white text-lg md:text-xl md:mb-6 leading-relaxed">
-            Wig donation is a generous way to support individuals experiencing hair loss due to medical conditions like cancer or alopecia.
+            Wig donation is a generous way to support individuals experiencing
+            hair loss due to medical conditions like cancer or alopecia.
           </p>
 
           <h3 className="text-xl font-bold text-white">How Your Donation Helps</h3>
@@ -86,7 +98,9 @@ function Donations() {
                 <span className="bg-green-300 text-primary text-xl p-2 rounded-xl">
                   <FaCheck />
                 </span>
-                <span className="text-white/70 text-base md:text-lg">100% of donated hair is used to create high quality wigs.</span>
+                <span className="text-white/70 text-base md:text-lg">
+                  100% of donated hair is used to create high quality wigs.
+                </span>
               </li>
             </Anims>
 
@@ -95,7 +109,10 @@ function Donations() {
                 <span className="bg-green-300 text-primary text-xl p-2 rounded-xl">
                   <FaCheck />
                 </span>
-                <span className="text-white/70 text-base md:text-lg">Wigs are provided for free with no fees/charges to the recipients.</span>
+                <span className="text-white/70 text-base md:text-lg">
+                  Wigs are provided for free with no fees/charges to the
+                  recipients.
+                </span>
               </li>
             </Anims>
 
@@ -104,13 +121,13 @@ function Donations() {
                 <span className="bg-green-300 text-primary text-xl p-2 rounded-xl">
                   <FaCheck />
                 </span>
-                <span className="text-white/70 text-base md:text-lg">Custom fittings ensure comfort and natural appearance.</span>
+                <span className="text-white/70 text-base md:text-lg">
+                  Custom fittings ensure comfort and natural appearance.
+                </span>
               </li>
             </Anims>
           </ul>
         </div>
-
-
       </div>
     </div>
   );
