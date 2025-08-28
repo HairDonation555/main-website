@@ -55,7 +55,7 @@ function Donations() {
 
       <div className="flex flex-col-reverse md:flex-row items-center justify-center m-6 p-4 gap-14">
         {/* Image Slider Section */}
-        <div className="relative w-full md:w-[600px] h-[400px] md:h-[600px] shadow-xl rounded-md overflow-hidden">
+        <div className="relative w-full md:w-[600px] h-[400px] md:h-[600px]  rounded-md overflow-hidden">
           {imageArray.map((image, index) => (
           
               <img
@@ -72,13 +72,13 @@ function Donations() {
           {/* Nav Buttons */}
           <button
             onClick={prevImage}
-            className="absolute left-3 top-1/2 -translate-y-1/2 bg-primary text-white p-2 w-10 rounded-full shadow-md hover:bg-opacity-80 transition"
+            className="absolute left-3 top-1/2 -translate-y-1/2 bg-primary text-white p-2 w-10 rounded-full  hover:bg-opacity-80 transition"
           >
             ❮
           </button>
           <button
             onClick={nextImage}
-            className="absolute right-3 top-1/2 -translate-y-1/2 bg-primary text-white p-2 w-10 rounded-full shadow-md hover:bg-opacity-80 transition"
+            className="absolute right-3 top-1/2 -translate-y-1/2 bg-primary text-white p-2 w-10 rounded-full  hover:bg-opacity-80 transition"
           >
             ❯
           </button>

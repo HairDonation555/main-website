@@ -31,7 +31,7 @@ function Process() {
             <img
               src={step.img}
               alt={step.title}
-              className="w-full md:w-[300px] h-auto object-contain rounded-xl shadow-md"
+              className="w-full md:w-[300px] h-auto object-contain rounded-xl"
             />
 
             {/* Step Text */}
@@ -50,7 +50,7 @@ function Process() {
       <div className="mt-12 flex justify-center">
       <button
               
-                className="group relative inline-flex hover:cursor-pointer items-center justify-center overflow-hidden rounded-xl bg-primary px-6 py-3 text-lg font-bold text-white shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:bg-primary-dark hover:pointer focus:outline-none"
+                className="group relative inline-flex hover:cursor-pointer items-center justify-center overflow-hidden rounded-xl bg-primary px-6 py-3 text-lg font-bold text-white  transition-all duration-300 ease-in-out hover:scale-105 hover:bg-primary-dark hover:pointer focus:outline-none"
               >
                 <a   href='https://drive.google.com/file/d/1x6KyTJZNue3x-DPkF29fKsmswkyUHNp0/view?usp=sharing'
                 target= "_blank">

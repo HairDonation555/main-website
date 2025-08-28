@@ -12,7 +12,7 @@ function Navbar() {
   const navItems = ['About', 'Achievements', 'Donations', 'Events'];
 
   return (
-    <div className="flex fixed py-3 px-6 w-full items-center justify-between shadow-md bg-white backdrop-blur-lg z-50">
+    <div className="flex fixed py-3 px-6 w-full items-center justify-between shadow-md bg-white  z-50">
       {/* Logo */}
       <Logo />
 
@@ -47,7 +47,7 @@ function Navbar() {
         <>
           {/* Dark transparent background */}
           <div
-            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
+            className="fixed inset-0 bg-black/40 z-40"
             onClick={() => setIsOpen(false)}
           ></div>
 

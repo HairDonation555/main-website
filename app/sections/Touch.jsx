@@ -79,7 +79,7 @@ const ContactSection = () => {
         <div className="text-center mt-6">
           <button
             onClick={toggleForm}
-            className="bg-white text-primary font-semibold px-6 py-2 rounded-md shadow-md hover:bg-opacity-90 transition duration-200"
+            className="bg-white text-primary font-semibold px-6 py-2 rounded-md hover:bg-opacity-90 transition duration-200"
           >
             {formType === "consent" ? "Get Contact Form" : "Get Consent Form"}
           </button>
@@ -88,7 +88,7 @@ const ContactSection = () => {
         <div className="mt-10 flex flex-col items-center p-2 justify-center gap-8">
           {formType === "consent" ? (
             // <Anims inAnimation="fadeIn" outAnimation="fadeOut" delay={0.2}>
-              <div className="bg-white shadow-lg w-full max-w-6xl rounded-lg mb-8 p-8">
+              <div className="bg-white  w-full max-w-6xl rounded-lg mb-8 p-8">
                 <h3 className="text-xl md:text-3xl font-semibold text-center text-primary mb-6">Hair Donation Consent Form</h3>
                 <form className="space-y-6" onSubmit={handleConsentSubmit}>
                   {/* form fields unchanged */}
@@ -175,7 +175,7 @@ const ContactSection = () => {
             // </Anims>
           ) : (
             // <Anims inAnimation="fadeIn" outAnimation="fadeOut" delay={0.2}>
-              <div className="bg-white shadow-lg md:w-[500px] w-[300px] rounded-lg p-6">
+              <div className="bg-white md:w-[500px] w-[300px] rounded-lg p-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">Send Us a Message</h3>
                 <form className="space-y-4" onSubmit={handleContactSubmit}>
                   {/* form fields unchanged */}
