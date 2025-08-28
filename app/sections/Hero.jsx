@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Button from '../components/Buttons';
-import Anims from '../components/Anims';
+// import Anims from '../components/Anims';
 
 const images = [
   '/images/nh1.jpeg',
@@ -66,16 +66,16 @@ const Hero = () => {
       {/* Foreground content */}
       <div className="relative z-10 flex flex-col items-center justify-center w-full h-full text-center">
         <div className="mt-[300px] md:mt-[600px] px-4">
-          <Anims inAnimation='fadeIn' outAnimation='fadeOut' delay={0.25}>
+          {/* <Anims inAnimation='fadeIn' outAnimation='fadeOut' delay={0.25}> */}
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
               Donate hair, give hope,
-              <Anims inAnimation='fadeIn' outAnimation='fadeOut' delay={0.25}>
+              {/* <Anims inAnimation='fadeIn' outAnimation='fadeOut' delay={0.25}> */}
                 <span className="block cursive text-5xl md:text-7xl">
                   Change lives!
                 </span>
-              </Anims>
+              {/* </Anims> */}
             </h1>
-          </Anims>
+          {/* </Anims> */}
           <p className="text-2xl mb-6">Be a Smile on someone’s Face!</p>
           <Button text="Donate" btnlink="/" />
         </div>

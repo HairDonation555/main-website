@@ -21,7 +21,7 @@ const TouchPopup = ({ onClose }) => {
   };
 
   return (
-    <div className="relative w-full max-w-2xl z-75 md:z-100 mx-auto mt-10 bg-white rounded-2xl shadow-xl p-6 animate-slideDown border border-gray-200">
+    <div className="relative w-full max-w-2xl z-75 md:z-100 mx-auto mt-10 bg-white rounded-2xl  p-6 animate-slideDown border border-gray-200">
       {/* Close Button */}
       <button
         className="absolute top-4 right-4 text-gray-500 cursor-pointer hover:text-gray-900 text-2xl font-bold transition"
@@ -63,7 +63,7 @@ const TouchPopup = ({ onClose }) => {
 
         <button
           type="submit"
-          className="w-full bg-primary cursor-pointer text-white py-3 rounded-xl font-semibold shadow-md hover:scale-[1.01] transition"
+          className="w-full bg-primary cursor-pointer text-white py-3 rounded-xl font-semibold  hover:scale-[1.01] transition"
         >
           Send Message
         </button>

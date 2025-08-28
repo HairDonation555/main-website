@@ -51,7 +51,7 @@ function Shorts() {
           {getCurrentShorts().map(short => (
             <div
               key={short.id}
-              className='bg-white rounded-xl overflow-hidden shadow-lg transform transition-transform hover:scale-105'
+              className='bg-white rounded-xl overflow-hidden  transform transition-transform hover:scale-105'
             >
               <iframe
                 className='w-full h-[400px] md:h-[500px]'

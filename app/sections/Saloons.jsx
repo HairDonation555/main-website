@@ -59,7 +59,7 @@ const Saloons = () => {
           return (
             <button
               key={index}
-              className={`absolute font-semibold px-2 py-1 md:px-4 md:py-2 rounded-full shadow-md transition-all duration-300 hover:scale-110 hover:z-[60] ${
+              className={`absolute font-semibold px-2 py-1 md:px-4 md:py-2 rounded-full transition-all duration-300 hover:scale-110 hover:z-[60] ${
                 isActive ? "ring-2 ring-white" : ""
               }`}
               style={{
@@ -85,17 +85,7 @@ const Saloons = () => {
       </div>
 
       <style jsx>{`
-        @keyframes pulse-glow {
-          0% {
-            box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
-          }
-          50% {
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
-          }
-          100% {
-            box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
-          }
-        }
+      
 
         @media (min-width: 768px) {
           button {
