@@ -7,7 +7,7 @@ const TouchPopup = ({ onClose }) => {
     formData.append("formType", "donation"); // distinguish in the script
 
     try {
-      await fetch("YOUR_GOOGLE_SCRIPT_WEB_APP_URL", {
+      await fetch("https://script.google.com/macros/s/AKfycbyB34cvcgdh0aHp3C1JPKj43RxSvt6agnQkMILlzHpCWEgwx43IiARn_5KV9L1nLOsw/exec", {
         method: "POST",
         body: formData,
       });
