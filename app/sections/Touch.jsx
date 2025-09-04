@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Feedback from "../components/Feedback";
 // import Anims from "../components/Anims";
 
 const ContactSection = () => {
@@ -236,6 +237,8 @@ const ContactSection = () => {
                   )}
                 </form>
               </div>
+
+              
             // </Anims>
           )}
         </div>

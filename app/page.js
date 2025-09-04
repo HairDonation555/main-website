@@ -9,19 +9,27 @@ import Process from "./sections/Process";
 import Locations from "./sections/Locations";
 import Footer from "./sections/Footer";
 import ContactSection from "./sections/Touch";
+import Reviews from "./sections/Reviews";
+import Feedback from "./components/Feedback";
+import EventsGallery from "./sections/EventsGallery";
+import WhatsAppBubble from "./components/WhatsAppBubble";
 
 export default function Home() {
   return (
     <div className="body flex flex-col w-full">
       <Navbar />
+      <WhatsAppBubble phoneNumber="917330931729" />
       <Hero />
       <About />
       <Shorts />
+      <EventsGallery />
       <Donations />
       <EventGallery />
       <Saloons />
       <Process />
       <Locations />
+      <Reviews />
+      <Feedback />
       <ContactSection />
       <Footer />
     </div>
