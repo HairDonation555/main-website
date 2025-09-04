@@ -18,7 +18,7 @@ const Feedback = () => {
     formData.append("timestamp", new Date().toISOString());
 
     try {
-      await fetch("YOUR_GOOGLE_SCRIPT_WEB_APP_URL", {
+      await fetch("https://script.google.com/macros/s/AKfycbzBXL0lPyiaZf-uth5Uapdi1j_qcnHD5qGfBYligXIEp8ULBpV-r6avyCV5WzkXrVdb2A/exec", {
         method: "POST",
         body: formData,
       });

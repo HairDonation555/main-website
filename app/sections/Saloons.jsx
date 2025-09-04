@@ -25,26 +25,34 @@ const Saloons = () => {
   }, []);
 
   useEffect(() => {
-    // Distribute points evenly in a grid pattern, with slight random offsets
-    const rows = 6;
-    const cols = 6;
-    const tempPositions = prominentLocations.map((_, idx) => {
-      const row = Math.floor(idx / cols);
-      const col = idx % cols;
-      return {
-        top: (row + 0.5) * (100 / rows) + (Math.random() * 5 - 2.5),
-        left: (col + 0.5) * (100 / cols) + (Math.random() * 5 - 2.5)
-      };
+    // Improved random placement with collision avoidance
+    const tempPositions = [];
+    const minDistance = 12; // minimum spacing between bubbles
+
+    prominentLocations.forEach(() => {
+      let top, left;
+      let valid = false;
+
+      while (!valid) {
+        top = Math.random() * 90 + 2; // keep inside viewport
+        left = Math.random() * 90 + 4;
+
+        valid = tempPositions.every(
+          (pos) =>
+            Math.sqrt(Math.pow(pos.top - top, 2) + Math.pow(pos.left - left, 2)) >
+            minDistance
+        );
+      }
+
+      tempPositions.push({ top, left });
     });
+
     setPositions(tempPositions);
   }, []);
 
   return (
     <div className="relative flex flex-col items-center p-6 bg-primary text-white w-full overflow-hidden">
-      <div className="absolute top-0 bottom-0 left-0 w-32 bg-gradient-to-r from-primary via-transparent to-transparent z-10 pointer-events-none" />
-      <div className="absolute top-0 bottom-0 right-0 w-32 bg-gradient-to-l from-primary via-transparent to-transparent z-10 pointer-events-none" />
-
-      <h2 className="text-4xl font-bold mt-12 mb-4 text-center z-20">
+      <h2 className="text-3xl md:text-4xl font-bold mt-12 mb-4 text-center z-20">
         Partner Salon Locations
       </h2>
       <p className="w-24 border-2 border-white mb-4 z-20" />
@@ -59,24 +67,23 @@ const Saloons = () => {
           return (
             <button
               key={index}
-              className={`absolute font-semibold px-2 py-1 md:px-4 md:py-2 rounded-full transition-all duration-300 hover:scale-110 hover:z-[60] ${
-                isActive ? "ring-2 ring-white" : ""
+              className={`absolute font-semibold px-3 py-2 rounded-full transition-all duration-300 hover:scale-110 ${
+                isActive ? "ring-2 ring-white shadow-lg" : "shadow-md"
               }`}
               style={{
                 top: `${positions[index]?.top || 50}%`,
                 left: `${positions[index]?.left || 50}%`,
-                transform: "translate(-50%, -50%) translateZ(0)",
+                transform: "translate(-50%, -50%)",
                 background: isActive ? "#ffffff" : "#b6e2dd",
                 color: isActive ? "#006c7c" : "#003c40",
                 animation: isActive ? "pulse-glow 3s ease-in-out infinite" : "none",
-                willChange: "transform, opacity",
-                fontSize: "0.6rem"
+                fontSize: "0.7rem",
               }}
             >
               <span className="flex items-center gap-2 text-xs md:text-sm whitespace-nowrap">
                 <FaMapMarkerAlt
                   className={isActive ? "text-[#006c7c]" : "text-[#004d55]"}
-                />{" "}
+                />
                 {name}
               </span>
             </button>
@@ -85,11 +92,15 @@ const Saloons = () => {
       </div>
 
       <style jsx>{`
-      
-
-        @media (min-width: 768px) {
-          button {
-            font-size: 0.875rem !important;
+        @keyframes pulse-glow {
+          0% {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6);
+          }
+          70% {
+            box-shadow: 0 0 0 12px rgba(255, 255, 255, 0);
+          }
+          100% {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
           }
         }
       `}</style>

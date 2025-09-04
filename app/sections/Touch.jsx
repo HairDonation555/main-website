@@ -40,7 +40,7 @@ const ContactSection = () => {
     formData.append('afterImage', afterBase64);
     formData.append('formType', 'consent');
 
-    await fetch("https://script.google.com/macros/s/AKfycbyfzt1jn2GAym_UU9TWAFJq0DHO25XQ-PFWnhzpV4WPko0qm6xVJeRxyv3NTTJGM5mGew/exec", {
+    await fetch("https://script.google.com/macros/s/AKfycbzBXL0lPyiaZf-uth5Uapdi1j_qcnHD5qGfBYligXIEp8ULBpV-r6avyCV5WzkXrVdb2A/exec", {
       method: "POST",
       body: formData,
     });
@@ -59,7 +59,7 @@ const ContactSection = () => {
 
     formData.append("formType", "contact");
 
-    await fetch("https://script.google.com/macros/s/AKfycbyfzt1jn2GAym_UU9TWAFJq0DHO25XQ-PFWnhzpV4WPko0qm6xVJeRxyv3NTTJGM5mGew/exec", {
+    await fetch("https://script.google.com/macros/s/AKfycbzBXL0lPyiaZf-uth5Uapdi1j_qcnHD5qGfBYligXIEp8ULBpV-r6avyCV5WzkXrVdb2A/exec", {
       method: "POST",
       body: formData,
     });
