@@ -70,11 +70,16 @@ const ContactSection = () => {
   };
 
   return (
-    <div className="bg-primary py-12 items-center justify-center md:px-12 lg:px-24">
+    <div id="contactus" className="bg-primary py-12 items-center justify-center md:px-12 lg:px-24">
       <div className="w-full items-center justify-center">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-white">Get In Touch</h2>
+       
         <p className="text-center text-white mt-2">
           Have questions? We're here to help with your hair donation journey.
+        </p>
+
+          <p className="text-center text-white mt-2">
+          Contact us now, if you're a cancer patient to get a <p className="text-white font-bold"> Free Wig! </p>
         </p>
 
         <div className="text-center mt-6">

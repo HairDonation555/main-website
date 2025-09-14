@@ -124,9 +124,9 @@ const Volunteers = () => {
                 className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
               >
                 <option value="">Select volunteer role</option>
-                <option>Hair Sorting</option>
+                <option>Hair Collections</option>
                 <option>Outreach Ambassador</option>
-                <option>Wig Assembly</option>
+                <option>Doorstep Delivery</option>
               </select>
 
               <button

@@ -3,14 +3,12 @@ import React, { useState, useEffect } from "react";
 import Anims from "../components/Anims";
 import { FaCheck } from "react-icons/fa6";
 
-const imageArray = [
-  "/images/don1.jpeg",
-  "/images/don2.jpeg",
-  "/images/don3.jpeg",
-  "/images/don4.jpeg",
-  "/images/don5.jpeg",
-  "/images/don6.jpeg",
-  "/images/don7.jpeg",
+const imageArray = 
+[
+  "/images/e_pics/wig (1).jpeg",
+  "/images/e_pics/wig (2).jpeg",
+  "/images/e_pics/wig (3).jpeg",
+  "/images/e_pics/wig (4).jpeg",
 ];
 
 function Donations() {
@@ -42,7 +40,7 @@ function Donations() {
   };
 
   return (
-    <div className="flex flex-col bg-primary md:px-10">
+    <div id="donations" className="flex flex-col bg-primary md:px-10">
       {/* Section Heading */}
       <div className="text-center md:p-2">
         {/* <Anims inAnimation="fadeIn" outAnimation="fadeOut"> */}
@@ -86,6 +84,11 @@ function Donations() {
 
         {/* Text Section */}
         <div className="md:w-1/2 w-full flex flex-col gap-6 text-left">
+         <p className="text-left text-xl text-white mt-2">
+          Contact us now, if you're a cancer patient to get a <b className="text-white font-bold"> Free Wig! </b>
+        </p>
+
+        <a className="text-xl text-left font-bold text-white underline hover:cursor-pointer" href='#contactus'>Contact Us →</a>
           <p className="text-white text-lg md:text-xl md:mb-6 leading-relaxed">
             Wig donation is a generous way to support individuals experiencing
             hair loss due to medical conditions like cancer or alopecia.
@@ -112,6 +115,17 @@ function Donations() {
                 <span className="text-white/70 text-base md:text-lg">
                   Wigs are provided for free with no fees/charges to the
                   recipients.
+                </span>
+              </li>
+            {/* </Anims> */}
+
+             {/* <Anims inAnimation="fadeIn" outAnimation="fadeOut"> */}
+              <li className="flex items-start gap-3"> 
+                <span className="bg-green-300 text-primary text-xl p-2 rounded-xl">
+                  <FaCheck />
+                </span>
+                <span className="text-white/70 text-base md:text-lg">
+                Every donor receives a professional free haircut as a token of appreciation for their noble contribution.
                 </span>
               </li>
             {/* </Anims> */}

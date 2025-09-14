@@ -4,13 +4,17 @@ import React, { useEffect, useState } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
 const prominentLocations = [
-  "Hyderabad", "Visakhapatnam", "Vijayawada", "Guntur", "Warangal",
-  "Tirupati", "Nellore", "Karimnagar", "Rajahmundry", "Kakinada",
-  "Delhi", "Mumbai", "Bangalore", "Chennai", "Kolkata",
-  "Pune", "Ahmedabad", "Jaipur", "Lucknow", "Coimbatore",
-  "Kurnool", "Kadapa", "Anantapur", "Ongole", "Eluru",
-  "Nizamabad", "Adilabad", "Srikakulam", "Vizianagaram", "Machilipatnam",
-  "Mangalagiri", "Bhadradri", "Amaravati", "Medak", "Khammam"
+  "Hyderabad", "Bangalore", "Delhi", "Kolkata", "Pune", "Chennai",
+  "Kerala", "Rajasthan", "Haryana", "Punjab", "Gujarat", "Mysore",
+  "Karnataka", "Uttarpradesh", "Goa", "Dehradun", "Chandigarh",
+  "Assam", "Uttarakhand", "Vijayawada", "Guntur", "Nellore",
+  "Karimnagar", "Nizamabad", "Tamilnadu", "Erode", "Trichy",
+  "Salem", "Nepal", "Coimbatore", "Tirupati", "Maharashtra",
+  "Mumbai", "Vizag", "Westbengal", "Bhopal", "Lucknow", "Jaipur",
+  "Patna", "Pondicherry", "Warangal", "Khammam", "Ongole",
+  "Andhrapradesh", "Madhyapradesh", "Indore", "Ooty",
+  "Kodaikanal", "Kanyakumari", "Madurai", "Salem", "Kashmir",
+  "Jhansi", "Howrah", "Kanyakumari"
 ];
 
 const Saloons = () => {
@@ -34,7 +38,7 @@ const Saloons = () => {
       let valid = false;
 
       while (!valid) {
-        top = Math.random() * 90 + 2; // keep inside viewport
+        top = Math.random() * 90 + 5; // keep inside viewport
         left = Math.random() * 90 + 4;
 
         valid = tempPositions.every(

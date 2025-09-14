@@ -21,11 +21,20 @@ const events = [
   "/gallery/door8.jpg",
   "/gallery/donor08.jpg",
   "/gallery/donor9.jpg",
+  "/gallery/d.jpeg",
+  "/images/don1.jpeg",
+  "/images/don2.jpeg",
+  "/images/don4.jpeg",
+  "/images/don7.jpeg",
+  "/images/don5.jpeg",
+  "/images/don3.jpeg",
+  "/images/don6.jpeg",
+
 ];
 
 const EventGallery = () => {
   return (
-    <div id="events" className="bg-white py-10 px-4 sm:px-6 lg:px-10">
+    <div className="bg-white py-10 px-4 sm:px-6 lg:px-10">
       {/* Section Text */}
       {/* <Anims inAnimation="fadeIn" outAnimation="fadeOut"> */}
         <div className="text-center mb-10">

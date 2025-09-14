@@ -12,6 +12,12 @@ const eventImages = [
   "/images/e_pics/8.jpeg",
   "/images/e_pics/9.jpeg",
   "/images/e_pics/10.jpeg",
+  "/images/e_pics/g1 (1).jpeg",
+  "/images/e_pics/g1 (2).jpeg",
+  "/images/e_pics/g1 (3).jpeg",
+  "/images/hr8.png",
+  "/images/hr9.png",
+  
 ];
 
 const eventVideos = [
