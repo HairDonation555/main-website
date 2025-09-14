@@ -77,7 +77,7 @@ const ContactSection = () => {
         </p>
 
           <p className="text-center text-white mt-2">
-          Contact us now, if you're a cancer patient to get a <p className="text-white font-bold"> Free Wig! </p>
+          Contact us now, if you're a cancer patient to get a <b className="text-white font-bold"> Free Wig! </b>
         </p>
 
         <div className="text-center mt-6">

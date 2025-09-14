@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 import Button from '../components/Buttons';
-// import Anims from '../components/Anims';
 
 const images = [
   '/images/nh1.jpeg',
@@ -14,9 +13,10 @@ const Hero = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
+  // Detect screen size reliably
   useEffect(() => {
     const checkScreenSize = () => {
-      setIsMobile(window.innerWidth <= 1024);
+      setIsMobile(window.innerWidth <= 768); // More typical mobile breakpoint
     };
 
     checkScreenSize();
@@ -25,6 +25,7 @@ const Hero = () => {
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
+  // Slide images only in mobile view
   useEffect(() => {
     if (!isMobile) return;
 
@@ -41,19 +42,20 @@ const Hero = () => {
       {/* Background image(s) */}
       <div className="absolute inset-0 z-0">
         {isMobile ? (
-          <img 
-            src={images[currentImage]} 
-            alt="Mobile Image" 
-            className="w-full h-full object-cover transition-opacity duration-500 ease-in-out"
+          <img
+            key={currentImage} // Force re-render on currentImage change
+            src={images[currentImage]}
+            alt="Hero Mobile"
+            className="w-full h-full object-cover transition-opacity duration-700 ease-in-out"
           />
         ) : (
-          <div className="flex h-full">
+          <div className="flex w-full h-full">
             {images.map((image, index) => (
-              <img 
-                key={index} 
-                src={image} 
-                alt={`Image ${index}`} 
-                className="w-1/3 h-full object-cover" 
+              <img
+                key={index}
+                src={image}
+                alt={`Hero Image ${index + 1}`}
+                className="w-1/3 h-full object-cover"
               />
             ))}
           </div>
@@ -64,21 +66,13 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/40 z-0" />
 
       {/* Foreground content */}
-      <div className="relative z-10 flex flex-col items-center justify-center w-full h-full text-center">
-        <div className="mt-[300px] md:mt-[600px] px-4">
-          {/* <Anims inAnimation='fadeIn' outAnimation='fadeOut' delay={0.25}> */}
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              Donate hair, give hope,
-              {/* <Anims inAnimation='fadeIn' outAnimation='fadeOut' delay={0.25}> */}
-                <span className="block cursive text-5xl md:text-7xl">
-                  Change lives!
-                </span>
-              {/* </Anims> */}
-            </h1>
-          {/* </Anims> */}
-          <p className="text-2xl mb-6">Be a Smile on someone’s Face!</p>
-          <Button text="Donate" btnlink="/" />
-        </div>
+      <div className="relative z-10 flex flex-col items-center justify-center w-full h-full text-center px-4">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">
+          Donate hair, Give hope,
+          <span className="block text-5xl md:text-7xl">Change lives!</span>
+        </h1>
+        <p className="text-2xl mb-6">Be a Smile on someone’s Face!</p>
+        <Button text="Donate" btnlink="/" />
       </div>
     </div>
   );

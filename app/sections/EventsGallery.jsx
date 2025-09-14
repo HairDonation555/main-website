@@ -21,14 +21,16 @@ const eventImages = [
 ];
 
 const eventVideos = [
-  // "/videos/e_vids/v1.mp4",
-  // "/videos/e_vids/v2.mp4",
-  // "/videos/e_vids/v3.mp4",
-  // "/videos/e_vids/v4.mp4",
-  // "/videos/e_vids/v5.mp4",
-  // "/videos/e_vids/v6.mp4",
-  // "/videos/e_vids/v7.mp4",
-  // "/videos/e_vids/v8.mp4",
+  "/videos/e_vids/v1.mp4",
+  "/videos/e_vids/v2.mp4",
+  "/videos/e_vids/v3.mp4",
+  "/videos/e_vids/v4.mp4",
+  "/videos/e_vids/v5.mp4",
+  "/videos/e_vids/v6.mp4",
+  "/videos/e_vids/v7.mp4",
+  "/videos/e_vids/v8.mp4",
+   "/videos/e_vids/vid4.mp4",
+    "/videos/e_vids/Feedback.mp4",
 ];
 
 const EventsGallery = () => {

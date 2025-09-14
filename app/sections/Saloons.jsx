@@ -4,17 +4,13 @@ import React, { useEffect, useState } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
 const prominentLocations = [
-  "Hyderabad", "Bangalore", "Delhi", "Kolkata", "Pune", "Chennai",
-  "Kerala", "Rajasthan", "Haryana", "Punjab", "Gujarat", "Mysore",
-  "Karnataka", "Uttarpradesh", "Goa", "Dehradun", "Chandigarh",
-  "Assam", "Uttarakhand", "Vijayawada", "Guntur", "Nellore",
-  "Karimnagar", "Nizamabad", "Tamilnadu", "Erode", "Trichy",
-  "Salem", "Nepal", "Coimbatore", "Tirupati", "Maharashtra",
-  "Mumbai", "Vizag", "Westbengal", "Bhopal", "Lucknow", "Jaipur",
-  "Patna", "Pondicherry", "Warangal", "Khammam", "Ongole",
-  "Andhrapradesh", "Madhyapradesh", "Indore", "Ooty",
-  "Kodaikanal", "Kanyakumari", "Madurai", "Salem", "Kashmir",
-  "Jhansi", "Howrah", "Kanyakumari"
+  "Hyderabad", "Visakhapatnam", "Vijayawada", "Guntur", "Warangal",
+  "Tirupati", "Nellore", "Karimnagar", "Rajahmundry", "Kakinada",
+  "Delhi", "Mumbai", "Bangalore", "Chennai", "Kolkata",
+  "Pune", "Ahmedabad", "Jaipur", "Lucknow", "Coimbatore",
+  "Kurnool", "Kadapa", "Anantapur", "Ongole", "Eluru",
+  "Nizamabad", "Adilabad", "Srikakulam", "Vizianagaram", "Machilipatnam",
+  "Mangalagiri", "Bhadradri", "Amaravati", "Medak", "Khammam"
 ];
 
 const Saloons = () => {
@@ -38,7 +34,7 @@ const Saloons = () => {
       let valid = false;
 
       while (!valid) {
-        top = Math.random() * 90 + 5; // keep inside viewport
+        top = Math.random() * 90 + 2; // keep inside viewport
         left = Math.random() * 90 + 4;
 
         valid = tempPositions.every(
@@ -60,7 +56,7 @@ const Saloons = () => {
         Partner Salon Locations
       </h2>
       <p className="w-24 border-2 border-white mb-4 z-20" />
-      <p className="text-lg text-gray-200 mt-2 text-center max-w-2xl z-20">
+      <p className="text-lg text-gray-200 mt-2 text-center max-w-2xl mb-12 md:mb-6 z-20">
         Our certified salon partners are located in the most prominent areas of India,
         offering convenient hair donation support throughout the country.
       </p>
