@@ -6,17 +6,6 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const yellowtail = Yellowtail({
-  variable: "--font-yellowtail", // Changed variable name for clarity
-  weight: "400", // Specify the weight here
-  subsets: ["latin"],
-});
-
-const parkinsasn = Parkinsans({
-  variable: "--font-parkinsans", // Changed variable name for clarity
-  weight: "400", // Specify the weight here
-  subsets: ["latin"],
-});
 
 export const metadata = {
   title: "Hair Donation 555",
@@ -27,7 +16,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${yellowtail.variable} ${parkinsasn.variable} transition ease-in-out antialiased`}
+        className={`${geistSans.variable} transition ease-in-out antialiased`}
       >
         {children}
       </body>
