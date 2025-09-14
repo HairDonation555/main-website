@@ -26,6 +26,11 @@ const reviews = [
     name: "Anupama Negi",
     text: "It was the very first time that I donated my hair to someone, and I am very happy after donating my hair to HD555 NGO. Their services are very good and I feel very happy and new after donating my hairs.....😊",
     rating: 5,
+  },
+  {
+    name: "Siri Jessy",
+    text: "I've cut my hair 15 inches.And of course it's a smooth process.My hair was picked  soon after 2 days.And I've got the certificate too thank you😍🥰❤️",
+    rating: 5,
   }
 ];
 
