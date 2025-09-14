@@ -21,7 +21,7 @@ export default function Home() {
       <WhatsAppBubble phoneNumber="917330931729" />
       <Hero />
       <About />
-      <Shorts />
+      {/* <Shorts />
       <Donations />
       <EventGallery />
       <EventsGallery />
@@ -30,7 +30,7 @@ export default function Home() {
       <Locations />
       <Reviews />
       <Feedback />
-      <ContactSection />
+      <ContactSection /> */}
       <Footer />
     </div>
   );
