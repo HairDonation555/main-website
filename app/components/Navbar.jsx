@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Buttons from './Buttons';
 import { FiMenu, FiX } from 'react-icons/fi';
 import Logo from './Logo';
-// import Anims from './Anims';
+import Anims from './Anims';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +19,7 @@ function Navbar() {
       {/* Desktop Navigation */}
       <div className="hidden md:flex items-center gap-10">
         {navItems.map((item, idx) => (
-          // <Anims key={idx} inAnimation='fadeIn' outAnimation='fadeOut'>
+          <Anims key={idx} inAnimation='fadeIn' outAnimation='fadeOut'>
             <a
               key ={idx}
               href={`#${item.toLowerCase()}`}
@@ -27,11 +27,11 @@ function Navbar() {
             >
               {item}
             </a>
-          // </Anims>
+          </Anims>
         ))}
-        {/* <Anims inAnimation='fadeIn' outAnimation='fadeOut'> */}
+        <Anims inAnimation='fadeIn' outAnimation='fadeOut'>
           <Buttons text='Donate' btnlink='/' />
-        {/* </Anims> */}
+        </Anims>
       </div>
 
       {/* Mobile Menu Toggle */}
