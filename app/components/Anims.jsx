@@ -10,17 +10,12 @@ const Anims = ({
   outAnimation,
   delay = 0,
   duration = 0.8,
-  id = "anim" // Add a unique id prop for key; make it required if needed
 }) => {
   const shouldReduceMotion = useReducedMotion();
-  const { ref, inView } = useInView({ threshold: 0 }); // Changed to 0 for stricter detection
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    requestAnimationFrame(() => {
-      setIsVisible(inView);
-    });
-  }, [inView]);
+  const { ref, inView } = useInView({
+    threshold: 0.1, // Slightly stricter threshold
+    triggerOnce: true, // ✅ Only trigger inView ONCE
+  });
 
   const variants = {
     fadeIn: { opacity: 1, transition: { duration, delay } },
@@ -37,23 +32,21 @@ const Anims = ({
 
   return (
     <motion.div
-      key={id} // ✅ Adds unique key to prevent reconciliation blinks
       ref={ref}
-      variants={variants}
-      initial={variants[outAnimation]} // ✅ Explicit out state on mount
+      initial={variants[outAnimation]}
       animate={
         shouldReduceMotion
-          ? variants[inAnimation] // Skip animation if reduced motion
-          : isVisible
+          ? variants[inAnimation]
+          : inView
           ? variants[inAnimation]
           : variants[outAnimation]
       }
       style={{
-        willChange: "transform, opacity", // Existing GPU hint
-        WebkitBackfaceVisibility: "hidden", // Existing Safari fix
-        WebkitTransform: "translateZ(0)", // Existing Safari fix
-        WebkitTransformStyle: "preserve-3d", // ✅ Extra for Safari 3D compositing
-        transformStyle: "preserve-3d", // Non-prefixed version
+        willChange: "transform, opacity",
+        WebkitBackfaceVisibility: "hidden",
+        WebkitTransform: "translateZ(0)",
+        WebkitTransformStyle: "preserve-3d",
+        transformStyle: "preserve-3d",
       }}
     >
       {children}

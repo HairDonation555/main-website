@@ -83,10 +83,10 @@ const TouchPopup = ({ onClose }) => {
   };
 
   return (
-    <div className="relative w-full max-w-2xl z-75 md:z-100 mx-auto mt-10 bg-white rounded-2xl p-6 animate-slideDown border border-gray-200">
+    <div className="relative w-full max-w-2xl z-75 md:z-100 mx-auto mt-10 bg-white rounded-2xl p-6 md:py-12 animate-slideDown border border-gray-200">
       {/* Close Button */}
       <button
-        className="absolute top-4 right-4 text-gray-500 cursor-pointer hover:text-gray-900 text-2xl font-bold transition"
+        className="absolute top-4 right-4 text-gray-500 cursor-pointer hover:text-gray-900 text-md text-red-600 md:text-2xl md:mt-6 font-bold transition"
         onClick={onClose}
         disabled={submitStatus === 'sending'}
       >
