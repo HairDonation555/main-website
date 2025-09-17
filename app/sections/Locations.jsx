@@ -1,5 +1,5 @@
 import React from 'react';
-// import Anims from '../components/Anims';
+import Anims from '../components/Anims';
 import Volunteers from '../components/Volunteers';
 
 function Process() {
@@ -14,13 +14,13 @@ function Process() {
         They offer you step by step guidance and assistance to provide you an easy experience.
         </p>
       </div>
-      {/* <Anims inAnimation="fadeIn" outAnimation="fadeOut" duration={0.1} delay={0.2}> */}
+      <Anims inAnimation="fadeIn" outAnimation="fadeOut" duration={0.1} delay={0.2}>
         <img 
           src='/images/locs.png' 
           className='w-full md:w-[700px] h-auto md:h-[650px] object-contain' 
           alt='About Us'
         />
-       {/* </Anims> */}
+       </Anims>
     </div>
 
     </div>

@@ -1,73 +1,107 @@
 "use client";
 
-import React, { useState } from 'react';
-import Buttons from './Buttons';
-import { FiMenu, FiX } from 'react-icons/fi';
-import Logo from './Logo';
-// import Anims from './Anims';
+import React, { useState, useEffect, useRef } from "react";
+import Buttons from "./Buttons";
+import { FiMenu, FiX } from "react-icons/fi";
+import Logo from "./Logo";
+import Anims from "./Anims";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null);
+  const buttonRef = useRef(null);
 
-  const navItems = ['About', 'Achievements', 'Donations', 'Events'];
+  const navItems = ["About", "Achievements", "Donations", "Events"];
+
+  // Close menu when clicking outside or on scroll
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        isOpen &&
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    const handleScroll = () => {
+      if (isOpen) setIsOpen(false);
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isOpen]);
 
   return (
-    <div className="flex fixed py-3 px-6 w-full items-center justify-between shadow-md bg-white  z-50">
+    <nav className="fixed top-0 left-0 w-full py-4 px-6 bg-white shadow-md z-50 flex items-center justify-between">
+      
       {/* Logo */}
       <Logo />
 
       {/* Desktop Navigation */}
       <div className="hidden md:flex items-center gap-10">
         {navItems.map((item, idx) => (
-          // <Anims key={idx} inAnimation='fadeIn' outAnimation='fadeOut'>
+          <Anims key={idx} inAnimation="fadeIn" outAnimation="fadeOut">
             <a
-              key ={idx}
               href={`#${item.toLowerCase()}`}
               className="relative text-lg font-semibold text-gray-800 transition-all duration-300 hover:text-primary after:block after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full after:absolute after:bottom-0 after:left-0"
             >
               {item}
             </a>
-          // </Anims>
+          </Anims>
         ))}
-        {/* <Anims inAnimation='fadeIn' outAnimation='fadeOut'> */}
-          <Buttons text='Donate' btnlink='/' />
-        {/* </Anims> */}
+        {/* <Anims inAnimation="fadeIn" outAnimation="fadeOut">
+          <Buttons text="Donate" btnlink="/" />
+        </Anims> */}
       </div>
 
-      {/* Mobile Menu Toggle */}
+      {/* Mobile Menu Toggle - only visible on small screens */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        ref={buttonRef}
+        onClick={() => setIsOpen((prev) => !prev)}
         className="md:hidden text-3xl text-primary focus:outline-none z-50"
+        aria-label="Toggle menu"
       >
         {isOpen ? <FiX /> : <FiMenu />}
       </button>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay + Slide Menu */}
       {isOpen && (
         <>
-          {/* Dark transparent background */}
+          {/* Overlay */}
           <div
-            className="fixed inset-0 bg-black/40 z-40"
+            className="fixed inset-0 bg-black/50 z-40"
             onClick={() => setIsOpen(false)}
           ></div>
 
-          {/* Slide down menu */}
-          <div className="absolute top-full left-0 w-full bg-white shadow-xl flex flex-col items-center gap-6 py-8 rounded-b-2xl animate-slideDown z-50">
+          {/* Partial Vertical Menu */}
+          <div
+            ref={menuRef}
+            className="fixed top-0 left-0 w-full h-[60vh] bg-white shadow-lg flex flex-col items-center justify-center gap-8 z-50 animate-slideDown p-6 rounded-b-2xl"
+          >
             {navItems.map((item, idx) => (
               <a
                 key={idx}
                 href={`#${item.toLowerCase()}`}
-                className="text-lg font-semibold text-gray-700 hover:text-primary hover:scale-105 transition-all duration-200"
+                className="text-2xl font-bold text-primary hover:text-secondary transition-transform duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 {item}
               </a>
             ))}
-            <Buttons text='Donate' btnlink='/' />
+            <Buttons text="Donate" btnlink="/" />
           </div>
         </>
       )}
-    </div>
+    </nav>
   );
 }
 

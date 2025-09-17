@@ -36,7 +36,7 @@ const EventGallery = () => {
   return (
     <div className="bg-white py-10 px-4 sm:px-6 lg:px-10">
       {/* Section Text */}
-      {/* <Anims inAnimation="fadeIn" outAnimation="fadeOut"> */}
+      <Anims inAnimation="fadeIn" outAnimation="fadeOut">
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-5xl font-bold text-black">Donors Gallery</h2>
           <div className="w-24 h-1 bg-primary mx-auto mt-2 mb-4 rounded-full" />
@@ -44,7 +44,7 @@ const EventGallery = () => {
             Celebrating our generous donors and their beautiful donations!
           </p>
         </div>
-      {/* </Anims> */}
+      </Anims>
 
       {/* Responsive Gallery Grid */}
       <div className="columns-2 sm:columns-3 md:columns-4 gap-4 space-y-4">
