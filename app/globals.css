@@ -1,4 +1,5 @@
 @import "tailwindcss";
+/* @import "tailwindcss/preflight"; */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,6 +15,60 @@
       opacity: 1;
     }
   }
+
+  @keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes slideInLeft {
+  from { transform: translateX(-20%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideOutLeft {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(-20%); opacity: 0; }
+}
+@keyframes slideInRight {
+  from { transform: translateX(20%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideOutRight {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(20%); opacity: 0; }
+}
+@keyframes slideInUp {
+  from { transform: translateY(20%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes slideOutDown {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(20%); opacity: 0; }
+}
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+@keyframes scaleOut {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(1.05); opacity: 0; }
+}
+
+/* Utility classes */
+.animate-fadeIn { animation: fadeIn forwards; }
+.animate-fadeOut { animation: fadeOut forwards; }
+.animate-slideInLeft { animation: slideInLeft forwards; }
+.animate-slideOutLeft { animation: slideOutLeft forwards; }
+.animate-slideInRight { animation: slideInRight forwards; }
+.animate-slideOutRight { animation: slideOutRight forwards; }
+.animate-slideInUp { animation: slideInUp forwards; }
+.animate-slideOutDown { animation: slideOutDown forwards; }
+.animate-scaleIn { animation: scaleIn forwards; }
+.animate-scaleOut { animation: scaleOut forwards; }
+
 
   .animate-slideDown {
     animation: slideDown 0.35s ease-out forwards;

@@ -1,56 +1,58 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useState, useEffect } from "react";
+import clsx from "clsx";
 
 const Anims = ({
   children,
-  inAnimation,
-  outAnimation,
+  inAnimation = "fadeIn",
+  outAnimation = "fadeOut",
   delay = 0,
   duration = 0.8,
 }) => {
-  const shouldReduceMotion = useReducedMotion();
   const { ref, inView } = useInView({
-    threshold: 0.1, // Slightly stricter threshold
-    triggerOnce: true, // ✅ Only trigger inView ONCE
+    threshold: 0.1,
+    triggerOnce: true, // run only once
   });
 
-  const variants = {
-    fadeIn: { opacity: 1, transition: { duration, delay } },
-    fadeOut: { opacity: 0, transition: { duration, delay } },
-    slideInLeft: { x: "0%", opacity: 1, transition: { duration, delay } },
-    slideOutLeft: { x: "-10%", opacity: 0, transition: { duration, delay } },
-    slideInRight: { x: "0%", opacity: 1, transition: { duration, delay } },
-    slideOutRight: { x: "10%", opacity: 0, transition: { duration, delay } },
-    slideInUp: { y: "0%", opacity: 1, transition: { duration, delay } },
-    slideOutDown: { y: "10%", opacity: 0, transition: { duration, delay } },
-    scaleIn: { scale: 1, opacity: 1, transition: { duration, delay } },
-    scaleOut: { scale: 1.05, opacity: 0, transition: { duration, delay } },
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (inView) setIsVisible(true);
+  }, [inView]);
+
+  // Dynamic inline styles
+  const style = {
+    animationDelay: `${delay}s`,
+    animationDuration: `${duration}s`,
+  };
+
+  // Animation class mappings
+  const animations = {
+    fadeIn: "animate-fadeIn",
+    fadeOut: "animate-fadeOut",
+    slideInLeft: "animate-slideInLeft",
+    slideOutLeft: "animate-slideOutLeft",
+    slideInRight: "animate-slideInRight",
+    slideOutRight: "animate-slideOutRight",
+    slideInUp: "animate-slideInUp",
+    slideOutDown: "animate-slideOutDown",
+    scaleIn: "animate-scaleIn",
+    scaleOut: "animate-scaleOut",
   };
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      initial={variants[outAnimation]}
-      animate={
-        shouldReduceMotion
-          ? variants[inAnimation]
-          : inView
-          ? variants[inAnimation]
-          : variants[outAnimation]
-      }
-      style={{
-        willChange: "transform, opacity",
-        WebkitBackfaceVisibility: "hidden",
-        WebkitTransform: "translateZ(0)",
-        WebkitTransformStyle: "preserve-3d",
-        transformStyle: "preserve-3d",
-      }}
+      className={clsx(
+        "will-change-transform will-change-opacity",
+        isVisible ? animations[inAnimation] : animations[outAnimation]
+      )}
+      style={style}
     >
       {children}
-    </motion.div>
+    </div>
   );
 };
 
