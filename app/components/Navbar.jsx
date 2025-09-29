@@ -42,7 +42,7 @@ function Navbar() {
   }, [isOpen]);
 
   return (
-    <nav className="fixed top-0 left-0 w-full py-4 px-6 bg-white shadow-md z-50 flex items-center justify-between">
+    <nav className="fixed top-0 left-0 w-full py-4 px-6 bg-white shadow-md z-150 flex items-center justify-between">
       
       {/* Logo */}
       <Logo />
