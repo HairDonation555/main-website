@@ -126,7 +126,7 @@ const Volunteers = () => {
                 <option value="">Select volunteer role</option>
                 <option>Hair Collections</option>
                 <option>Outreach Ambassador</option>
-                <option>Doorstep Delivery</option>
+                <option>Doorstep Pick-up</option>
               </select>
 
               <button

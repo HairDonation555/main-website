@@ -6,7 +6,7 @@ const steps = [
   { num: '1', title: 'Hairwash', step: 'Wash your hair thoroughly.', img: '/images/step-1.jpg' },
   { num: '2', title: 'Secure Hair', step: 'Secure your hair with a rubber band.', img: '/images/step-2.jpg' },
   { num: '3', title: 'Secure Again', step: 'Secure the middle with another rubber band.', img: '/images/step-3.jpeg' },
-  { num: '4', title: 'Min Hair Length', step: 'Ensure the hair length is at least 12 inches.', img: '/images/step-4.webp' },
+  { num: '4', title: 'Min Hair Length', step: 'Ensure the hair length is at least 12 inches.', img: '/images/e_pics/length.jpeg' },
   { num: '5', title: 'Cut your Hair', step: 'Cut above the top rubber band.', img: '/images/step-5.jpg' },
   { num: '6', title: 'Store your Hair', step: 'Wrap the hair in a paper and store in a ziplock bag.', img: '/images/step-6.jpg' },
 ];

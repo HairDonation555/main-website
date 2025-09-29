@@ -132,6 +132,17 @@ const Feedback = () => {
           </p>
         )}
       </form>
+
+      <div className="text-xs text-gray-400 mt-4 text-center">
+        <h1 className="text-primary"> Provide a Google review and support the cause!</h1>
+        <button className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">
+          <a className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" 
+          href="https://www.google.com/maps/place/Hair+Donation/@15.4999205,80.0467724,17z/data=!4m14!1m5!8m4!1e1!2s108048886842683641227!3m1!1e1!3m7!1s0x3a4b011cd72eb6c7:0x96e47f3af7fa542b!8m2!3d15.4999205!4d80.0493473!9m1!1b1!16s%2Fg%2F11wfqz7_x_?entry=ttu&g_ep=EgoyMDI1MDgzMC4wIKXMDSoASAFQAw%3D%3D" // replace with your Google reviews page link
+          >
+            Review us on Google
+          </a>
+        </button>
+      </div>
     </div>
   );
 };

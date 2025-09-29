@@ -4,15 +4,17 @@ import React, { useEffect, useState } from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
 const prominentLocations = [
-  "Hyderabad", "Visakhapatnam", "Vijayawada", "Guntur", "Warangal",
-  "Tirupati", "Nellore", "Karimnagar", "Rajahmundry", "Kakinada",
-  "Delhi", "Mumbai", "Bangalore", "Chennai", "Kolkata",
-  "Pune", "Ahmedabad", "Jaipur", "Lucknow", "Coimbatore",
-  "Kurnool", "Kadapa", "Anantapur", "Ongole", "Eluru",
-  "Nizamabad", "Adilabad", "Srikakulam", "Vizianagaram", "Machilipatnam",
-  "Mangalagiri", "Bhadradri", "Amaravati", "Medak", "Khammam"
+  "Hyderabad", "Bangalore", "Delhi", "Kolkata", "Pune",
+  "Chennai", "Kerala", "Rajasthan", "Haryana", "Punjab",
+  "Gujarat", "Mysore", "Uttarpradesh", "Goa", "Dehradun",
+  "Chandigarh", "Assam", "Uttarakhand", "Vijayawada", "Guntur",
+   "Karimnagar", "Nizamabad", "Tamilnadu",
+   "Nepal", "Coimbatore", "Tirupati",
+  "Maharashtra", "Mumbai", "Visakhapatnam", "Westbengal", "Bhopal",
+  "Lucknow", "Jaipur", "Patna", "Pondicherry", "Warangal",
+  "Ongole", "Andhrapradesh", "Madhyapradesh", "Indore",
+  "Kashmir", "Howrah", "Kanyakumari"
 ];
-
 const Saloons = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [positions, setPositions] = useState([]);
