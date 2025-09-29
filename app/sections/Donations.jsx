@@ -72,13 +72,13 @@ function Donations() {
             onClick={prevImage}
             className="absolute left-3 top-1/2 -translate-y-1/2 bg-primary text-white p-2 w-10 rounded-full  hover:bg-opacity-80 transition"
           >
-            «
+            ←
           </button>
           <button
             onClick={nextImage}
             className="absolute right-3 top-1/2 -translate-y-1/2 bg-primary text-white p-2 w-10 rounded-full  hover:bg-opacity-80 transition"
           >
-            »
+            →
           </button>
         </div>
 

@@ -35,7 +35,7 @@ const Hero = () => {
 
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % mobileImages.length);
-    }, 3000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [isMobile]);
