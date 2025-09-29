@@ -19,7 +19,7 @@ function Shorts() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex(prev => (prev + 1) % Math.ceil(shortsData.length / shortsPerPage));
-    }, 15000);
+    }, 60000);
     return () => clearInterval(interval);
   }, []);
 
