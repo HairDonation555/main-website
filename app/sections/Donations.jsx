@@ -88,7 +88,7 @@ function Donations() {
           Contact us now, if you're a cancer patient to get a <b className="text-white font-bold"> Free Wig! </b>
         </p>
 
-        <a className="text-xl text-left font-bold text-white underline hover:cursor-pointer" href='#contactus'>Contact Us →</a>
+        <a className="text-xl text-left font-bold text-white underline hover:cursor-pointer" href='https://forms.gle/CWpj6LSHAMzGiKE86' target="_blank">Contact Us →</a>
           <p className="text-white text-lg md:text-xl md:mb-6 leading-relaxed">
             Wig donation is a generous way to support individuals experiencing
             hair loss due to medical conditions like cancer or alopecia.
