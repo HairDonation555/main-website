@@ -13,7 +13,7 @@ const steps = [
 
 function Process() {
   return (
-    <div id="donations" className="relative w-full py-12 px-4 md:px-12">
+    <div id="Saloons" className="relative w-full py-12 px-4 md:px-12">
       {/* Heading */}
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-5xl font-bold text-black">Our Process</h2>

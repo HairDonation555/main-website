@@ -5,6 +5,7 @@ import Buttons from "./Buttons";
 import { FiMenu, FiX } from "react-icons/fi";
 import Logo from "./Logo";
 import Anims from "./Anims";
+import Normal from "./Normal";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -61,6 +62,7 @@ function Navbar() {
         {/* <Anims inAnimation="fadeIn" outAnimation="fadeOut">
           <Buttons text="Donate" btnlink="/" />
         </Anims> */}
+         <Normal model text="Process" />
       </div>
 
       {/* Mobile Menu Toggle - only visible on small screens */}
@@ -98,6 +100,11 @@ function Navbar() {
               </a>
             ))}
             <Buttons text="Donate" btnlink="/" />
+
+            <div className="absolute bottom-4 text-gray-500 text-center text-sm">
+             <h1 className="font-semibold">Get to know the process for donating!</h1>
+             <a href="#Saloons" className="underline hover:text-primary"> Click Here </a>
+            </div>
           </div>
         </>
       )}

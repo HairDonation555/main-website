@@ -10,6 +10,8 @@ const mobileImages = [
   "/images/don1.jpeg",
 ];
 
+
+
 // Desktop hero background
 const desktopImage = "/images/e_pics/Home.png";
 
