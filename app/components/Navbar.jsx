@@ -101,7 +101,7 @@ function Navbar() {
             ))}
             <Buttons text="Donate" btnlink="/" />
 
-            <div className="absolute bottom-4 text-gray-500 text-center text-sm">
+            <div className="absolute bottom-4 text-gray-500 text-center mt-4 text-sm">
              <h1 className="font-semibold">Get to know the process for donating!</h1>
              <a href="#Saloons" className="underline hover:text-primary"> Click Here </a>
             </div>

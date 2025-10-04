@@ -4,6 +4,11 @@ import { useInView } from "react-intersection-observer";
 import { useState, useEffect } from "react";
 import clsx from "clsx";
 
+/**
+ * Anims Component
+ * Handles entry/exit animations when elements scroll into view.
+ * fadeIn/fadeOut now replaced with smooth slide animations (mobile-safe)
+ */
 const Anims = ({
   children,
   inAnimation = "fadeIn",
@@ -13,7 +18,7 @@ const Anims = ({
 }) => {
   const { ref, inView } = useInView({
     threshold: 0.1,
-    triggerOnce: true, // run only once
+    triggerOnce: true, // run only once for performance
   });
 
   const [isVisible, setIsVisible] = useState(false);
@@ -22,16 +27,16 @@ const Anims = ({
     if (inView) setIsVisible(true);
   }, [inView]);
 
-  // Dynamic inline styles
+  // Animation style
   const style = {
     animationDelay: `${delay}s`,
     animationDuration: `${duration}s`,
   };
 
-  // Animation class mappings
+  // Remap fade animations to slide ones (for compatibility)
   const animations = {
-    fadeIn: "animate-fadeIn",
-    fadeOut: "animate-fadeOut",
+    fadeIn: "animate-slideInSmooth",
+    fadeOut: "animate-slideOutSmooth",
     slideInLeft: "animate-slideInLeft",
     slideOutLeft: "animate-slideOutLeft",
     slideInRight: "animate-slideInRight",

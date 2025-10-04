@@ -13,15 +13,20 @@ import Reviews from "./sections/Reviews";
 import Feedback from "./components/Feedback";
 import EventsGallery from "./sections/EventsGallery";
 import WhatsAppBubble from "./components/WhatsAppBubble";
+import Head from "next/head";
+
 
 export default function Home() {
   return (
+    
     <div className="body flex flex-col w-full">
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+      </Head> 
       <Navbar />
       <WhatsAppBubble phoneNumber="917330931729" />
       <Hero />
-      <About />
-  
+      <About /> 
       <Shorts />
       <Donations />
       <EventGallery />
