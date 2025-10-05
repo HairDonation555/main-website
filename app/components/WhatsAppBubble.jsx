@@ -6,7 +6,7 @@ const WhatsAppBubble = ({ phoneNumber}) => {
   const [clicked, setClicked] = useState(false);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-6 right-6 z-500">
       {/* Chat Bubble Container */}
       <div className="flex items-center gap-0">
         {/* Text Bubble (shows until clicked) */}
