@@ -2,98 +2,45 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useState, useEffect, useMemo } from "react";
 
 const Anims = ({
   children,
   inAnimation = "fadeIn",
   outAnimation = "fadeOut",
-  delay, // ✅ Only from props
+  delay = 0,
   duration = 0.8,
 }) => {
   const { ref, inView } = useInView({
     threshold: 0.1,
-    triggerOnce: true, // animate once for performance
+    triggerOnce: true, // animate only once
   });
 
-  const [hasAnimated, setHasAnimated] = useState(false);
+  // Define animation variants
+  const variants = {
+    fadeIn: { opacity: 1, y: 0, transition: { duration, delay, ease: "easeOut" } },
+    fadeOut: { opacity: 0, y: 0, transition: { duration, ease: "easeIn" } },
 
-  useEffect(() => {
-    if (inView && !hasAnimated) setHasAnimated(true);
-  }, [inView, hasAnimated]);
+    slideInLeft: { opacity: 1, x: 0, transition: { duration, delay, ease: "easeOut" } },
+    slideOutLeft: { opacity: 0, x: -40, transition: { duration, ease: "easeIn" } },
 
-  // ✅ UseMemo keeps the variants stable between renders
-  const variants = useMemo(
-    () => ({
-      fadeIn: {
-        opacity: 1,
-        y: 0,
-        transition: { duration, ...(delay ? { delay } : {}), ease: "easeOut" },
-      },
-      fadeOut: {
-        opacity: 0,
-        y: 0,
-        transition: { duration, ease: "easeIn" },
-      },
+    slideInRight: { opacity: 1, x: 0, transition: { duration, delay, ease: "easeOut" } },
+    slideOutRight: { opacity: 0, x: 40, transition: { duration, ease: "easeIn" } },
 
-      slideInLeft: {
-        opacity: 1,
-        x: 0,
-        transition: { duration, ...(delay ? { delay } : {}), ease: "easeOut" },
-      },
-      slideOutLeft: {
-        opacity: 0,
-        x: -40,
-        transition: { duration, ease: "easeIn" },
-      },
+    slideInUp: { opacity: 1, y: 0, transition: { duration, delay, ease: "easeOut" } },
+    slideOutDown: { opacity: 0, y: 40, transition: { duration, ease: "easeIn" } },
 
-      slideInRight: {
-        opacity: 1,
-        x: 0,
-        transition: { duration, ...(delay ? { delay } : {}), ease: "easeOut" },
-      },
-      slideOutRight: {
-        opacity: 0,
-        x: 40,
-        transition: { duration, ease: "easeIn" },
-      },
+    scaleIn: { opacity: 1, scale: 1, transition: { duration, delay, ease: "easeOut" } },
+    scaleOut: { opacity: 0, scale: 0.95, transition: { duration, ease: "easeIn" } },
+  };
 
-      slideInUp: {
-        opacity: 1,
-        y: 0,
-        transition: { duration, ...(delay ? { delay } : {}), ease: "easeOut" },
-      },
-      slideOutDown: {
-        opacity: 0,
-        y: 40,
-        transition: { duration, ease: "easeIn" },
-      },
-
-      scaleIn: {
-        opacity: 1,
-        scale: 1,
-        transition: { duration, ...(delay ? { delay } : {}), ease: "easeOut" },
-      },
-      scaleOut: {
-        opacity: 0,
-        scale: 0.95,
-        transition: { duration, ease: "easeIn" },
-      },
-    }),
-    [delay, duration]
-  );
-
-  const initialVariant =
-    outAnimation && variants[outAnimation] ? outAnimation : "fadeOut";
-  const animateVariant =
-    inAnimation && variants[inAnimation] ? inAnimation : "fadeIn";
+  const initial = variants[outAnimation] || variants.fadeOut;
+  const animate = inView ? variants[inAnimation] || variants.fadeIn : initial;
 
   return (
     <motion.div
       ref={ref}
-      initial={initialVariant}
-      animate={hasAnimated ? animateVariant : initialVariant}
-      variants={variants}
+      initial={initial}
+      animate={animate}
       style={{ willChange: "transform, opacity" }}
     >
       {children}
