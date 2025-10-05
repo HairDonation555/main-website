@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { FaPlantWilt, FaHandshakeSimple, FaScissors } from "react-icons/fa6";
-import Anims from "./Anims";
+import { motion } from "framer-motion";
 
 const Volunteers = () => {
   const [successMessage, setSuccessMessage] = useState("");
@@ -39,7 +39,12 @@ const Volunteers = () => {
 
         {/* Volunteer Roles */}
         <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Anims inAnimation="fadeIn" outAnimation="fadeOut">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6 }}
+          >
             <div className="bg-white shadow-lg rounded-lg p-6 text-left">
               <span className="text-primary text-3xl">
                 <FaScissors />
@@ -52,9 +57,14 @@ const Volunteers = () => {
               </p>
               <p className="text-gray-500 mt-2">⏳ 4 hours/week commitment</p>
             </div>
-          </Anims>
+          </motion.div>
 
-          <Anims inAnimation="fadeIn" outAnimation="fadeOut">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
             <div className="bg-white shadow-lg rounded-lg p-6 text-left">
               <span className="text-primary text-3xl">
                 <FaHandshakeSimple />
@@ -67,9 +77,14 @@ const Volunteers = () => {
               </p>
               <p className="text-gray-500 mt-2">⏳ Flexible hours</p>
             </div>
-          </Anims>
+          </motion.div>
 
-          <Anims inAnimation="fadeIn" outAnimation="fadeOut">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             <div className="bg-white shadow-lg rounded-lg p-6 text-left">
               <span className="text-primary text-3xl">
                 <FaPlantWilt />
@@ -82,69 +97,72 @@ const Volunteers = () => {
               </p>
               <p className="text-gray-500 mt-2">⏳ 6 hours/week commitment</p>
             </div>
-          </Anims>
+          </motion.div>
         </div>
 
         {/* Volunteer Signup Form */}
-        <Anims inAnimation="fadeIn" outAnimation="fadeOut">
-          <div className="mt-12 bg-white shadow-lg rounded-lg p-6 md:p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-semibold text-gray-900 text-center">
-              Become a Volunteer
-            </h3>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-12 bg-white shadow-lg rounded-lg p-6 md:p-8 max-w-2xl mx-auto"
+        >
+          <h3 className="text-2xl font-semibold text-gray-900 text-center">
+            Become a Volunteer
+          </h3>
 
-            <form className="mt-6 space-y-4" onSubmit={handleVolunteerSubmit}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input
-                  name="firstName"
-                  type="text"
-                  placeholder="First Name"
-                  required
-                  className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
-                />
-                <input
-                  name="lastName"
-                  type="text"
-                  placeholder="Last Name"
-                  required
-                  className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
-                />
-              </div>
-
+          <form className="mt-6 space-y-4" onSubmit={handleVolunteerSubmit}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
-                name="email"
-                type="email"
-                placeholder="Email"
+                name="firstName"
+                type="text"
+                placeholder="First Name"
                 required
                 className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
               />
-
-              <select
-                name="role"
+              <input
+                name="lastName"
+                type="text"
+                placeholder="Last Name"
                 required
                 className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
-              >
-                <option value="">Select volunteer role</option>
-                <option>Doorstep Haircut</option>
-                <option>Doorstep Pick-up</option>
-                <option>Outreach Ambassador</option>
-       
-              </select>
+              />
+            </div>
 
-              <button
-                type="submit"
-                className="w-full bg-primary text-white py-2 rounded-md hover:bg-opacity-90 transition duration-200"
-              >
-                {isSending ? "Sending..." : "Apply Now"}
-              </button>
+            <input
+              name="email"
+              type="email"
+              placeholder="Email"
+              required
+              className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+            />
 
-              {successMessage && (
-                <p className="text-green-600 text-center font-medium mt-3">
-                  {successMessage}
-                </p>
-              )}
-            </form>
-          </div>
-        </Anims>
+            <select
+              name="role"
+              required
+              className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+            >
+              <option value="">Select volunteer role</option>
+              <option>Doorstep Haircut</option>
+              <option>Doorstep Pick-up</option>
+              <option>Outreach Ambassador</option>
+            </select>
+
+            <button
+              type="submit"
+              className="w-full bg-primary text-white py-2 rounded-md hover:bg-opacity-90 transition duration-200"
+            >
+              {isSending ? "Sending..." : "Apply Now"}
+            </button>
+
+            {successMessage && (
+              <p className="text-green-600 text-center font-medium mt-3">
+                {successMessage}
+              </p>
+            )}
+          </form>
+        </motion.div>
       </div>
     </div>
   );

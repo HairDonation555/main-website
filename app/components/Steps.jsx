@@ -1,10 +1,15 @@
-import React from 'react';
-import Anims from './Anims';
+import React from "react";
+import { motion } from "framer-motion";
 
 function Steps(props) {
   return (
     <div className="relative flex flex-col items-start justify-start w-full mb-10 pl-6">
-      <Anims inAnimation="fadeIn" outAnimation="fadeOut" >
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.6 }}
+      >
         {/* Step Number + Title */}
         <div className="flex items-center gap-4 mb-2">
           <div className="w-8 h-8 flex items-center justify-center rounded-full bg-primary text-white font-bold">
@@ -25,7 +30,7 @@ function Steps(props) {
             {props.step}
           </p>
         </div>
-      </Anims>
+      </motion.div>
     </div>
   );
 }

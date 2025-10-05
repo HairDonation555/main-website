@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Anims from "../components/Anims";
+import { motion } from "framer-motion";
 
 const events = [
   "/gallery/dono05.jpg",
@@ -29,22 +29,25 @@ const events = [
   "/images/don5.jpeg",
   "/images/don3.jpeg",
   "/images/don6.jpeg",
-
 ];
 
 const EventGallery = () => {
   return (
     <div className="bg-white py-10 px-4 sm:px-6 lg:px-10">
       {/* Section Text */}
-      <Anims inAnimation="fadeIn" outAnimation="fadeOut">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-5xl font-bold text-black">Donors Gallery</h2>
-          <div className="w-24 h-1 bg-primary mx-auto mt-2 mb-4 rounded-full" />
-          <p className="text-gray-600 leading-relaxed max-w-xl mx-auto">
-            Celebrating our generous donors and their beautiful donations!
-          </p>
-        </div>
-      </Anims>
+      <motion.div
+        className="text-center mb-10"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className="text-3xl md:text-5xl font-bold text-black">Donors Gallery</h2>
+        <div className="w-24 h-1 bg-primary mx-auto mt-2 mb-4 rounded-full" />
+        <p className="text-gray-600 leading-relaxed max-w-xl mx-auto">
+          Celebrating our generous donors and their beautiful donations!
+        </p>
+      </motion.div>
 
       {/* Responsive Gallery Grid */}
       <div className="columns-2 sm:columns-3 md:columns-4 gap-4 space-y-4">

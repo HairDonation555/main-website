@@ -11,7 +11,7 @@
   "dependencies": {
     "autoprefixer": "^10.4.21",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.6.3",
+    "framer-motion": "^12.23.22",
     "next": "^15.2.3",
     "postcss": "^8.5.3",
     "react": "^19.0.0",
