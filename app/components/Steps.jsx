@@ -4,7 +4,7 @@ import Anims from './Anims';
 function Steps(props) {
   return (
     <div className="relative flex flex-col items-start justify-start w-full mb-10 pl-6">
-      <Anims inAnimation="fadeIn" outAnimation="fadeOut" delay={props.num * 0.1}>
+      <Anims inAnimation="fadeIn" outAnimation="fadeOut" >
         {/* Step Number + Title */}
         <div className="flex items-center gap-4 mb-2">
           <div className="w-8 h-8 flex items-center justify-center rounded-full bg-primary text-white font-bold">

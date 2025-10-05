@@ -91,7 +91,7 @@ const ContactSection = () => {
 
         <div className="mt-10 flex flex-col items-center p-2 justify-center gap-8">
           {formType === "consent" ? (
-            <Anims inAnimation="fadeIn" outAnimation="fadeOut" delay={0.2}>
+            <Anims inAnimation="fadeIn" outAnimation="fadeOut">
               <div className="bg-white  w-full max-w-6xl rounded-lg mb-8 p-8">
                 <h3 className="text-xl md:text-3xl font-semibold text-center text-primary mb-6">Hair Donation Consent Form</h3>
                 <form className="space-y-6" onSubmit={handleConsentSubmit}>
@@ -178,7 +178,7 @@ const ContactSection = () => {
               </div>
               </Anims>
           ) : (
-            <Anims inAnimation="fadeIn" outAnimation="fadeOut" delay={0.2}>
+            <Anims inAnimation="fadeIn" outAnimation="fadeOut">
               <div className="bg-white md:w-[500px] w-[300px] rounded-lg p-6">
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">Send Us a Message</h3>
                 <form className="space-y-4" onSubmit={handleContactSubmit}>
