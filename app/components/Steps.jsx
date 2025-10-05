@@ -1,15 +1,9 @@
 import React from "react";
-import { motion } from "framer-motion";
 
 function Steps(props) {
   return (
     <div className="relative flex flex-col items-start justify-start w-full mb-10 pl-6">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 0.6 }}
-      >
+      <div className="animate-fade-in-step">
         {/* Step Number + Title */}
         <div className="flex items-center gap-4 mb-2">
           <div className="w-8 h-8 flex items-center justify-center rounded-full bg-primary text-white font-bold">
@@ -30,7 +24,24 @@ function Steps(props) {
             {props.step}
           </p>
         </div>
-      </motion.div>
+      </div>
+
+      <style jsx>{`
+        @keyframes fadeInStep {
+          from {
+            opacity: 0;
+            transform: translateY(0);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fade-in-step {
+          animation: fadeInStep 0.6s ease-out forwards;
+        }
+      `}</style>
     </div>
   );
 }

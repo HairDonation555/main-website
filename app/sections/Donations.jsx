@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { FaCheck } from "react-icons/fa6";
-import { motion } from "framer-motion";
 
 const imageArray = [
   "/images/e_pics/wig (1).jpeg",
@@ -42,17 +41,12 @@ function Donations() {
     <div id="donations" className="flex flex-col bg-primary md:px-10">
       {/* Section Heading */}
       <div className="text-center md:p-2">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="animate-fade-in-donations">
           <h2 className="text-3xl md:text-5xl md:mt-12 mt-6 font-bold text-white">
             Wig Donations
           </h2>
           <div className="w-24 border-2 border-primary mx-auto mt-2"></div>
-        </motion.div>
+        </div>
       </div>
 
       <div className="flex flex-col-reverse md:flex-row items-center justify-center m-6 p-4 gap-14">
@@ -111,23 +105,54 @@ function Donations() {
               "Every donor receives a professional free haircut as a token of appreciation for their noble contribution.",
               "Custom fittings ensure comfort and natural appearance.",
             ].map((text, idx) => (
-              <motion.li
+              <li
                 key={idx}
-                className="flex items-start gap-3"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                className="flex items-start gap-3 animate-fade-in-list"
+                style={{ animationDelay: `${idx * 0.1}s` }}
               >
                 <span className="bg-green-300 text-primary text-xl p-2 rounded-xl">
                   <FaCheck />
                 </span>
                 <span className="text-white/70 text-base md:text-lg">{text}</span>
-              </motion.li>
+              </li>
             ))}
           </ul>
         </div>
-      </div>
+      {/* </div> */}
+
+   
+    </div>
+       <style jsx>{`
+        @keyframes fadeInDonations {
+          from {
+            opacity: 0;
+            transform: translateY(0);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes fadeInList {
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fade-in-donations {
+          animation: fadeInDonations 0.6s ease-out forwards;
+        }
+
+        .animate-fade-in-list {
+          animation: fadeInList 0.6s ease-out forwards;
+        }
+      `}</style>
     </div>
   );
 }

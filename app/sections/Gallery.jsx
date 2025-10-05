@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 
 const events = [
   "/gallery/dono05.jpg",
@@ -35,19 +34,13 @@ const EventGallery = () => {
   return (
     <div className="bg-white py-10 px-4 sm:px-6 lg:px-10">
       {/* Section Text */}
-      <motion.div
-        className="text-center mb-10"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 0.6 }}
-      >
+      <div className="text-center mb-10 animate-fade-in-gallery">
         <h2 className="text-3xl md:text-5xl font-bold text-black">Donors Gallery</h2>
         <div className="w-24 h-1 bg-primary mx-auto mt-2 mb-4 rounded-full" />
         <p className="text-gray-600 leading-relaxed max-w-xl mx-auto">
           Celebrating our generous donors and their beautiful donations!
         </p>
-      </motion.div>
+      </div>
 
       {/* Responsive Gallery Grid */}
       <div className="columns-2 sm:columns-3 md:columns-4 gap-4 space-y-4">
@@ -60,6 +53,23 @@ const EventGallery = () => {
           />
         ))}
       </div>
+
+      <style jsx>{`
+        @keyframes fadeInGallery {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fade-in-gallery {
+          animation: fadeInGallery 0.6s ease-out forwards;
+        }
+      `}</style>
     </div>
   );
 };

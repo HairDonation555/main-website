@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { FaPlantWilt, FaHandshakeSimple, FaScissors } from "react-icons/fa6";
-import { motion } from "framer-motion";
 
 const Volunteers = () => {
   const [successMessage, setSuccessMessage] = useState("");
@@ -39,12 +38,7 @@ const Volunteers = () => {
 
         {/* Volunteer Roles */}
         <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6 }}
-          >
+          <div className="animate-fade-in-volunteer">
             <div className="bg-white shadow-lg rounded-lg p-6 text-left">
               <span className="text-primary text-3xl">
                 <FaScissors />
@@ -57,14 +51,9 @@ const Volunteers = () => {
               </p>
               <p className="text-gray-500 mt-2">⏳ 4 hours/week commitment</p>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
+          <div className="animate-fade-in-volunteer delay-100">
             <div className="bg-white shadow-lg rounded-lg p-6 text-left">
               <span className="text-primary text-3xl">
                 <FaHandshakeSimple />
@@ -77,14 +66,9 @@ const Volunteers = () => {
               </p>
               <p className="text-gray-500 mt-2">⏳ Flexible hours</p>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+          <div className="animate-fade-in-volunteer delay-200">
             <div className="bg-white shadow-lg rounded-lg p-6 text-left">
               <span className="text-primary text-3xl">
                 <FaPlantWilt />
@@ -97,17 +81,11 @@ const Volunteers = () => {
               </p>
               <p className="text-gray-500 mt-2">⏳ 6 hours/week commitment</p>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Volunteer Signup Form */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-12 bg-white shadow-lg rounded-lg p-6 md:p-8 max-w-2xl mx-auto"
-        >
+        <div className="mt-12 bg-white shadow-lg rounded-lg p-6 md:p-8 max-w-2xl mx-auto animate-fade-in-volunteer delay-300">
           <h3 className="text-2xl font-semibold text-gray-900 text-center">
             Become a Volunteer
           </h3>
@@ -162,8 +140,37 @@ const Volunteers = () => {
               </p>
             )}
           </form>
-        </motion.div>
+        </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fadeInVolunteer {
+          from {
+            opacity: 0;
+            transform: translateY(0);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fade-in-volunteer {
+          animation: fadeInVolunteer 0.6s ease-out forwards;
+        }
+
+        .delay-100 {
+          animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+          animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+          animation-delay: 0.3s;
+        }
+      `}</style>
     </div>
   );
 };

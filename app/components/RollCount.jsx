@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { motion, useInView } from "framer-motion";
 
 const RollingNumber = ({ count = "1M+", countname = "" }) => {
   const [currentCount, setCurrentCount] = useState(0);
+  const [isInView, setIsInView] = useState(false);
   const ref = useRef(null);
   const duration = 1000; // Animation duration in ms
 
@@ -19,8 +19,27 @@ const RollingNumber = ({ count = "1M+", countname = "" }) => {
     return Math.floor(numericValue); // Ensure it's an integer
   };
 
-  // Framer Motion hook to detect if element is in viewport
-  const isInView = useInView(ref, { amount: 0.5, once: true });
+  // Intersection Observer to detect if element is in viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !isInView) {
+          setIsInView(true);
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [isInView]);
 
   useEffect(() => {
     if (!isInView) return;
@@ -43,16 +62,32 @@ const RollingNumber = ({ count = "1M+", countname = "" }) => {
   }, [isInView, count]);
 
   return (
-    <motion.h2
+    <h2
       ref={ref}
-      className="text-center text-2xl flex flex-col w-36 font-bold text-white"
-      initial={{ opacity: 0, y: 20 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6 }}
+      className={`text-center text-2xl flex flex-col w-36 font-bold text-white ${
+        isInView ? "animate-fade-in-count" : "opacity-0"
+      }`}
     >
       <span className="text-white font-bold">{currentCount.toLocaleString()}+</span>
       {countname}
-    </motion.h2>
+
+      <style jsx>{`
+        @keyframes fadeInCount {
+          from {
+            opacity: 0;
+            transform: translateY(0);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fade-in-count {
+          animation: fadeInCount 0.6s ease-out forwards;
+        }
+      `}</style>
+    </h2>
   );
 };
 

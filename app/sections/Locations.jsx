@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import { motion } from 'framer-motion';
 import Volunteers from '../components/Volunteers';
 
 function Process() {
@@ -18,20 +17,32 @@ function Process() {
           </p>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="animate-fade-in-process">
           <img
             src='/map.png'
             className='w-full md:w-[700px] h-auto md:h-[650px] object-contain'
             alt='About Us'
           />
-        </motion.div>
+        </div>
 
       </div>
+
+      <style jsx>{`
+        @keyframes fadeInProcess {
+          from {
+            opacity: 0;
+            transform: translateY(0);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fade-in-process {
+          animation: fadeInProcess 0.6s ease-out forwards;
+        }
+      `}</style>
     </div>
   );
 }

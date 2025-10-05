@@ -3,7 +3,6 @@ import React, { useEffect, useRef } from "react";
 import { FaHandshakeAngle } from "react-icons/fa6";
 import { IoIosHeart } from "react-icons/io";
 import { IoMdMan } from "react-icons/io";
-import { motion } from "framer-motion";
 
 function About() {
   const videoRef = useRef(null);
@@ -31,13 +30,7 @@ function About() {
       className="w-full flex md:mt-10 md:mb-20 flex-col md:flex-row items-center justify-center py-10 mt-6 gap-6 px-5 md:px-20"
     >
       {/* Video Section */}
-      <motion.div
-        className="md:w-1/2 w-full flex justify-center"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 0.6 }}
-      >
+      <div className="md:w-1/2 w-full flex justify-center animate-fade-in-about">
         <video
           ref={videoRef}
           src="/videos/vid2.mp4"
@@ -46,7 +39,7 @@ function About() {
           muted
           playsInline
         />
-      </motion.div>
+      </div>
 
       {/* Text Section */}
       <div className="md:w-1/2 flex flex-col gap-12 w-full mt-6 md:mt-0 md:pl-10">
@@ -63,47 +56,54 @@ function About() {
         <div className="mt-4">
           <h3 className="text-xl font-semibold text-gray-900">Why Your Donation Helps</h3>
           <ul className="mt-2 space-y-2">
-            <motion.li
-              className="flex items-center"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.6 }}
-            >
+            <li className="flex items-center animate-fade-in-about">
               <span className="text-primary text-xl mr-2 bg-green-300 rounded-xl p-2">
                 <IoIosHeart />
               </span>
               Provides wigs for cancer patients undergoing chemotherapy
-            </motion.li>
+            </li>
 
-            <motion.li
-              className="flex items-center"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
+            <li className="flex items-center animate-fade-in-about delay-100">
               <span className="text-primary text-xl mr-2 bg-green-300 rounded-xl p-2">
                 <IoMdMan />
               </span>
               Supports children with alopecia or other medical hair loss conditions
-            </motion.li>
+            </li>
 
-            <motion.li
-              className="flex items-center"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
+            <li className="flex items-center animate-fade-in-about delay-200">
               <span className="text-primary text-xl mr-2 bg-green-300 rounded-xl p-2">
                 <FaHandshakeAngle />
               </span>
               Boosts self-esteem and confidence for recipients
-            </motion.li>
+            </li>
           </ul>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fadeInAbout {
+          from {
+            opacity: 0;
+            transform: translateY(0);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fade-in-about {
+          animation: fadeInAbout 0.6s ease-out forwards;
+        }
+
+        .delay-100 {
+          animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+          animation-delay: 0.2s;
+        }
+      `}</style>
     </div>
   );
 }

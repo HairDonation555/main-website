@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import { FaStar } from "react-icons/fa";
 
@@ -38,7 +39,7 @@ function Reviews() {
   return (
     <div id="reviews" className="relative w-full py-12 px-4 md:px-12 bg-gray-50">
       {/* Heading */}
-      <div className="text-center mb-12">
+      <div className="text-center mb-12 animate-fade-in-reviews">
         <h2 className="text-3xl md:text-5xl font-bold text-black">What People Say</h2>
         <div className="w-24 h-1 bg-primary mx-auto mt-2"></div>
       </div>
@@ -48,7 +49,8 @@ function Reviews() {
         {reviews.map((review, index) => (
           <div
             key={index}
-            className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 hover:scale-105 transition-transform duration-300"
+            className="bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4 hover:scale-105 transition-transform duration-300 animate-fade-in-reviews-card"
+            style={{ animationDelay: `${index * 0.1}s` }}
           >
             {/* Reviewer */}
             <div className="flex flex-col">
@@ -67,9 +69,9 @@ function Reviews() {
       </div>
 
       {/* CTA Button */}
-      <div className="mt-12 flex justify-center">
+      <div className="mt-12 flex justify-center animate-fade-in-reviews-cta">
         <a
-          href="https://www.google.com/maps/place/Hair+Donation/@15.4999205,80.0467724,17z/data=!4m14!1m5!8m4!1e1!2s108048886842683641227!3m1!1e1!3m7!1s0x3a4b011cd72eb6c7:0x96e47f3af7fa542b!8m2!3d15.4999205!4d80.0493473!9m1!1b1!16s%2Fg%2F11wfqz7_x_?entry=ttu&g_ep=EgoyMDI1MDgzMC4wIKXMDSoASAFQAw%3D%3D" // replace with your Google reviews page link
+          href="https://www.google.com/maps/place/Hair+Donation/@15.4999205,80.0467724,17z/data=!4m14!1m5!8m4!1e1!2s108048886842683641227!3m1!1e1!3m7!1s0x3a4b011cd72eb6c7:0x96e47f3af7fa542b!8m2!3d15.4999205!4d80.0493473!9m1!1b1!16s%2Fg%2F11wfqz7_x_?entry=ttu&g_ep=EgoyMDI1MDgzMC4wIKXMDSoASAFQAw%3D%3D"
           target="_blank"
           rel="noopener noreferrer"
           className="group relative inline-flex items-center justify-center overflow-hidden rounded-xl bg-primary px-6 py-3 text-lg font-bold text-white transition-all duration-300 ease-in-out hover:scale-105 hover:bg-primary-dark"
@@ -77,8 +79,61 @@ function Reviews() {
           <span className="absolute inset-0 rounded-xl bg-white opacity-10 transition-opacity duration-300 group-hover:opacity-20"></span>
           <span className="relative z-10">Read More Reviews</span>
         </a>
-      </div>
+
+
+    
     </div>
+
+      <style jsx>{`
+        @keyframes fadeInReviews {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes fadeInReviewsCard {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes fadeInReviewsCta {
+          from {
+            opacity: 0;
+            transform: scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        .animate-fade-in-reviews {
+          animation: fadeInReviews 0.6s ease-out forwards;
+        }
+
+        .animate-fade-in-reviews-card {
+          animation: fadeInReviewsCard 0.6s ease-out forwards;
+          opacity: 0;
+        }
+
+        .animate-fade-in-reviews-cta {
+          animation: fadeInReviewsCta 0.8s ease-out forwards;
+          animation-delay: 0.8s;
+          opacity: 0;
+        }
+      `}</style>
+</div>
   );
 }
 
