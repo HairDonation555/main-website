@@ -35,7 +35,7 @@ function About() {
         <video
           ref={videoRef}
           src="/videos/vid2.mp4" // Replace with your actual video file
-          className="w-full md:w-[500px] md:h-[800px] rounded-lg md:rounded-xl "
+          className="w-full md:w-[500px] md:h-[800px] rounded-lg md:rounded-xl shadow-black "
           loop
           muted
           playsInline

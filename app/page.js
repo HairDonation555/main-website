@@ -20,9 +20,6 @@ export default function Home() {
   return (
     
     <div className="body flex flex-col w-full">
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-      </Head> 
       <Navbar />
       <WhatsAppBubble phoneNumber="917330931729" />
       <Hero />

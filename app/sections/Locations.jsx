@@ -16,7 +16,7 @@ function Process() {
       </div>
       <Anims inAnimation="fadeIn" outAnimation="fadeOut" duration={0.1} delay={0.2}>
         <img 
-          src='/images/locs.png' 
+          src='/map.svg' 
           className='w-full md:w-[700px] h-auto md:h-[650px] object-contain' 
           alt='About Us'
         />

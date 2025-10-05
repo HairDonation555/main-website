@@ -1,14 +1,11 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useState, useEffect } from "react";
-import clsx from "clsx";
 
-/**
- * Anims Component
- * Handles entry/exit animations when elements scroll into view.
- * fadeIn/fadeOut now replaced with smooth slide animations (mobile-safe)
- */
+
+
 const Anims = ({
   children,
   inAnimation = "fadeIn",
@@ -18,46 +15,48 @@ const Anims = ({
 }) => {
   const { ref, inView } = useInView({
     threshold: 0.1,
-    triggerOnce: true, // run only once for performance
+    triggerOnce: true, // animate only once for performance
   });
 
   const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
     if (inView) setIsVisible(true);
   }, [inView]);
 
-  // Animation style
-  const style = {
-    animationDelay: `${delay}s`,
-    animationDuration: `${duration}s`,
+  // Define reusable motion variants
+  const variants = {
+    fadeIn: { opacity: 1, y: 0, transition: { duration, delay, ease: "easeOut" } },
+    fadeOut: { opacity: 0, y: 0, transition: { duration, ease: "easeIn" } },
+
+    slideInLeft: { opacity: 1, x: 0, transition: { duration, delay, ease: "easeOut" } },
+    slideOutLeft: { opacity: 0, x: -40, transition: { duration, ease: "easeIn" } },
+
+    slideInRight: { opacity: 1, x: 0, transition: { duration, delay, ease: "easeOut" } },
+    slideOutRight: { opacity: 0, x: 40, transition: { duration, ease: "easeIn" } },
+
+    slideInUp: { opacity: 1, y: 0, transition: { duration, delay, ease: "easeOut" } },
+    slideOutDown: { opacity: 0, y: 40, transition: { duration, ease: "easeIn" } },
+
+    scaleIn: { opacity: 1, scale: 1, transition: { duration, delay, ease: "easeOut" } },
+    scaleOut: { opacity: 0, scale: 0.95, transition: { duration, ease: "easeIn" } },
   };
 
-  // Remap fade animations to slide ones (for compatibility)
-  const animations = {
-    fadeIn: "animate-slideInSmooth",
-    fadeOut: "animate-slideOutSmooth",
-    slideInLeft: "animate-slideInLeft",
-    slideOutLeft: "animate-slideOutLeft",
-    slideInRight: "animate-slideInRight",
-    slideOutRight: "animate-slideOutRight",
-    slideInUp: "animate-slideInUp",
-    slideOutDown: "animate-slideOutDown",
-    scaleIn: "animate-scaleIn",
-    scaleOut: "animate-scaleOut",
-  };
+  // Start and end variants
+  const initialVariant =
+    outAnimation && variants[outAnimation] ? outAnimation : "fadeOut";
+  const animateVariant =
+    inAnimation && variants[inAnimation] ? inAnimation : "fadeIn";
 
   return (
-    <div
+    <motion.div
       ref={ref}
-      className={clsx(
-        "will-change-transform will-change-opacity",
-        isVisible ? animations[inAnimation] : animations[outAnimation]
-      )}
-      style={style}
+      initial={initialVariant}
+      animate={isVisible ? animateVariant : initialVariant}
+      variants={variants}
+      style={{ willChange: "transform, opacity" }}
     >
       {children}
-    </div>
+    </motion.div>
   );
 };
 
