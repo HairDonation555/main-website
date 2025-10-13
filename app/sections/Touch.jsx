@@ -38,7 +38,7 @@ const ContactSection = () => {
     formData.append("formType", "consent");
 
     await fetch(
-      "https://script.google.com/macros/s/AKfycbyB34cvcgdh0aHp3C1JPKj43RxSvt6agnQkMILlzHpCWEgwx43IiARn_5KV9L1nLOsw/exec",
+      "https://script.google.com/macros/s/AKfycbxsozq8O4DHsp6umCZwPCExp7JkZUBpNVfsWpDjXvKHbx9rgl7YgRn0dUopzzRT4wga8Q/exec",
       { method: "POST", body: formData }
     );
 
@@ -57,7 +57,7 @@ const ContactSection = () => {
     formData.append("formType", "contact");
 
     await fetch(
-      "https://script.google.com/macros/s/AKfycbyB34cvcgdh0aHp3C1JPKj43RxSvt6agnQkMILlzHpCWEgwx43IiARn_5KV9L1nLOsw/exec",
+      "https://script.google.com/macros/s/AKfycbxsozq8O4DHsp6umCZwPCExp7JkZUBpNVfsWpDjXvKHbx9rgl7YgRn0dUopzzRT4wga8Q/exec",
       { method: "POST", body: formData }
     );
 
@@ -75,6 +75,10 @@ const ContactSection = () => {
         </p>
         <p className="text-center text-white mt-2">
           Contact us now, if you're a cancer patient to get a <b className="text-white font-bold"> Free Wig! </b>
+        </p>
+
+         <p className="text-center text-white mt-2">
+          Submit the consent form <a href="/consent-form" className=" decoration-underline underline underline-offset-2 text-red-600"> here! </a>
         </p>
 
         <div className="text-center mt-6">

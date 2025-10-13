@@ -14,7 +14,7 @@ const Volunteers = () => {
     formData.append("formType", "volunteer");
 
     await fetch(
-      "https://script.google.com/macros/s/AKfycbyB34cvcgdh0aHp3C1JPKj43RxSvt6agnQkMILlzHpCWEgwx43IiARn_5KV9L1nLOsw/exec",
+      "https://script.google.com/macros/s/AKfycbxsozq8O4DHsp6umCZwPCExp7JkZUBpNVfsWpDjXvKHbx9rgl7YgRn0dUopzzRT4wga8Q/exec",
       {
         method: "POST",
         body: formData,
