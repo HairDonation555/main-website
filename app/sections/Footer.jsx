@@ -14,8 +14,8 @@ function Footer() {
       <div className="flex flex-col gap-4 items-center md:items-start text-center md:text-left w-full md:w-1/4">
         <Logo />
         <p className="text-md text-gray-700">
-          Wig donation organizations host hair collection drives where people can donate their hair. 
-          They then create high-quality wigs from the donated hair, ensuring a natural look.
+          We host hair collection drives where people can donate their hair
+          and create high-quality wigs from the donated hair, ensuring a natural look.
         </p>
         <Buttons text="Donate" btnlink="/" />
       </div>

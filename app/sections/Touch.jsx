@@ -71,14 +71,14 @@ const ContactSection = () => {
       <div className="w-full items-center justify-center">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-white">Get In Touch</h2>
         <p className="text-center text-white mt-2">
-          Have questions? We're here to help with your hair donation journey.
+          Have questions? <br /> We're here to help with your hair donation journey.
         </p>
         <p className="text-center text-white mt-2">
-          Contact us now, if you're a cancer patient to get a <b className="text-white font-bold"> Free Wig! </b>
+          Contact us now, if you're a cancer patient to get a <br/> <b className="text-white font-bold"> Free Wig! </b>
         </p>
 
          <p className="text-center text-white mt-2">
-          Submit the consent form <a href="/consent-form" className=" decoration-underline underline underline-offset-2 text-red-600"> here! </a>
+          Submit your full consent form <a href="/consent-form" className=" decoration-underline underline underline-offset-2 text-blue-400"> here! </a>
         </p>
 
         <div className="text-center mt-6">
