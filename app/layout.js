@@ -15,9 +15,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
+     <head>
         <link rel="icon" href="/favicon.ico" />
-      </head> 
+        <meta property="og:image" content="/images/e_pics/Home.png" />
+        <meta name="twitter:image" content="/images/e_pics/Home.png" />
+        <meta property="og:title" content="Hair Donation 555" />
+        <meta property="og:description" content="Gift hair, Gift hope. Donate Hair - Change lives! At Hair Donation 555, we believe everyone deserves to feel confident and beautiful ...." />
+        <meta name="twitter:card" content="/images/e_pics/Home.png" />
+      </head>
       <body
         className={`${geistSans.variable} transition ease-in-out antialiased`}
       >
