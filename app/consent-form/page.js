@@ -7,13 +7,14 @@ import { useRouter } from "next/navigation";
 
 export default function HairDonationConsentForm() {
   const GOOGLE_SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbxsozq8O4DHsp6umCZwPCExp7JkZUBpNVfsWpDjXvKHbx9rgl7YgRn0dUopzzRT4wga8Q/exec";
+    "https://script.google.com/macros/s/AKfycbyXMXDMSOGMK81bby6MFTFA6L4DuPn8nRHfoVzSB6ce2pZPKEazQdm8SQAxl4lmzo-8QQ/exec";
 
   const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
 
   const [formData, setFormData] = useState({
+    salutation: "",
     name: "",
     age: "",
     gender: "",
@@ -96,6 +97,7 @@ export default function HairDonationConsentForm() {
         setTimeout(() => router.push("/"), 3000);
 
         setFormData({
+          salutation: "", 
           name: "",
           age: "",
           gender: "",
@@ -160,15 +162,34 @@ export default function HairDonationConsentForm() {
               Personal Information
             </h2>
             <div className="grid md:grid-cols-2 gap-4">
-              <input
-                type="text"
-                name="name"
-                placeholder="Full Name"
-                value={formData.name}
-                onChange={handleChange}
-                className="bg-gray-300 p-2 rounded-md w-full"
-                required
-              />
+              
+              <div className="grid md:grid-cols-2 gap-4">
+                <select
+                  name="salutation"
+                  value={formData.salutation}
+                  onChange={handleChange}
+                  className="bg-gray-300 p-2 rounded-md w-full"
+                  required
+                >
+                  <option value="">Select Salutation</option>
+                  <option>Mr.</option>
+                  <option>Ms.</option>
+                  <option>Mrs.</option>
+                  <option>Dr.</option>
+                  <option>Prof.</option>
+                </select>
+
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="bg-gray-300 p-2 rounded-md w-full"
+                  required
+                />
+              </div>
+
               <input
                 type="number"
                 name="age"
@@ -473,8 +494,8 @@ export default function HairDonationConsentForm() {
                 animate={{ opacity: 1, y: 0 }}
                 className={`mt-4 text-sm w-full ${
                   successMessage.includes("Success")
-                    ? "text-green-600 font-bold text-center"
-                    : "text-red-600 font-bold text-center"
+                    ? "text-red-600 font-bold text-center"
+                    : "text-green-600 font-bold text-center"
                 }`}
               >
                 {successMessage}
