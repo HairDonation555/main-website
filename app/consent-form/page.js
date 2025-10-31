@@ -221,7 +221,7 @@ export default function HairDonationConsentForm() {
 
             <div className="mt-4">
               <label className="block font-medium mb-1">
-                Passport-size photograph (Max 1MB)
+               Before Donation Photo (Max 1MB)
               </label>
               <input
                 type="file"
