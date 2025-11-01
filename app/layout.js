@@ -18,6 +18,7 @@ export default function RootLayout({ children }) {
 
       <head>
         {/* <link rel="icon" href="./favicon.ico" /> */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <meta property="og:image" content="https://www.hairdonations555.org/images/poster.jpg" />
         <meta property="og:image:alt" content="Hair Donations Poster" />
         <meta name="twitter:image" content="https://www.hairdonations555.org/images/poster.jpg" />
